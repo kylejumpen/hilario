@@ -1,0 +1,46 @@
+Je veux pouvoir :
+--- v1.0
+
+- Faire l'inventaire de ma boutique :
+	- ajouter un article
+	- récupérer les caractéristiques d'un article 
+	- supprimer un article
+	- Modifier les caractéristiques d'un article
+	- Pouvoir récupérer des articles selon leur référence
+
+- Faire l'inventaire de mon stock :
+	- ajouter un article
+	- récupérer les caractéristiques d'un article 
+	- supprimer un article
+	- Modifier les caractéristiques d'un article
+	- Pouvoir récupérer des articles selon leur référence
+
+- Gérer les achats et les ventes de produits à l'unité
+	- être capable d'estimer mes gains/pertes sur chaque vente (marchandage)
+	- être capable d'obtenir une facture
+
+- Gérer les commandes dans leur globalité
+	- être capable d'estimer mes gains/pertes sur chaque vente
+	- être capable d'obtenir une facture
+
+- Gérer la comptabilité totale de mon enseigne :
+	- factures des fournisseurs
+	- factures des clients
+	- ajout/suppression des employés
+	- paie des employés
+	- liquidités actuelle
+
+--- v2.0
+- Instaurer une notion de droit afin que mes employés aie leur propre espace
+- Estimer les ventes de chaque vendeur
+- Ajouter une deuxième boutique
+
+--- v3.0 ( non demandé par le client)
+
+* Passer sur du système client léger
+* Récupérer le nom de client réguler ainsi que leur addresse
+
+
+
+
+

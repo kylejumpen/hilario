@@ -1,0 +1,3 @@
+*On assimile la commande à la vente
+*On ne veut pas tracker LA paire de chaussure (c'est du gros)
+*Employé Mystère (-1) quand suppression
