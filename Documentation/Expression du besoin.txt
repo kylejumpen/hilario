@@ -38,7 +38,8 @@ Je veux pouvoir :
 --- v3.0 ( non demandé par le client)
 
 * Passer sur du système client léger
-* Récupérer le nom de client réguler ainsi que leur addresse
+* Récupérer le nom de client régulier ainsi que leur addresse
+* établir leur préférence
 
 
 

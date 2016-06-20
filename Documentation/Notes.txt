@@ -1,3 +1,5 @@
-*On assimile la commande à la vente
+*On assimile la commande à la vente ( changement dans la bd)
 *On ne veut pas tracker LA paire de chaussure (c'est du gros)
 *Employé Mystère (-1) quand suppression
+*Après 3 mois on génère des rapports papiers afin d'éviter de surcharger la base
+*Les comptes seront fait toutes les semaines

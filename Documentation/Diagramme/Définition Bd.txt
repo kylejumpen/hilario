@@ -1,0 +1,113 @@
+#CREATE DATABASE IF NOT EXISTS hilario;
+
+DROP TABLE IF EXISTS Factures;
+
+DROP TABLE IF EXISTS Achat;
+
+DROP TABLE IF EXISTS Chaussure;
+
+DROP TABLE IF EXISTS Commande;
+
+DROP TABLE IF EXISTS Employee;
+
+DROP TABLE IF EXISTS Personne;
+
+
+
+#OPTIMISER EN CREANT DES NOMS DE DOMAINES POUR LE TYPE
+
+#OPTIMISER EN CREANT CONTRAINTES SUR VALEURS POUR S'ASSURER QUE TEL ET TEL SOIT BIEN PROPRIO ET FOURNISSEUR
+
+
+CREATE TABLE Personne (identifiant INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+nom VARCHAR(150), 
+
+prenom VARCHAR(150),
+
+ type VARCHAR(1))
+ ENGINE=InnoDB;
+
+
+
+CREATE TABLE Employee (identifiant INT,
+
+droits VARCHAR(1),
+
+ salaire INT,
+ 
+FOREIGN KEY(identifiant) REFERENCES Personne(identifiant)
+ )
+ ENGINE=InnoDB;
+
+
+
+
+CREATE TABLE Commande (identifiant INT AUTO_INCREMENT PRIMARY KEY,
+
+date DATETIME,
+
+cout INT NOT NULL,
+
+identifiant_vendeur INT,
+
+ FOREIGN KEY(identifiant_vendeur) REFERENCES Personne(identifiant)
+) ENGINE=InnoDB;
+
+
+
+CREATE TABLE Chaussure (
+identifiant INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+reference VARCHAR(25) NOT NULL,
+
+prix INT NOT NULL,
+
+emplacement VARCHAR(25) NOT NULL,
+
+identifiant_commande INT,
+
+identifiant_achatfrn INT,
+
+FOREIGN KEY(identifiant_commande) REFERENCES Commande(identifiant),
+
+FOREIGN KEY(identifiant_achatfrn) REFERENCES Achat (identifiant)
+)
+ ENGINE=InnoDB ;
+
+
+
+CREATE TABLE Achat ( 
+identifiant INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+date DATETIME,
+
+identifiant_prop INT,
+
+identifiant_fournisseur INT,
+
+ FOREIGN KEY(identifiant_prop) REFERENCES Personne(identifiant),
+  FOREIGN KEY(identifiant_fournisseur) REFERENCES Personne(identifiant)
+ )
+ ENGINE=InnoDB;
+
+
+
+CREATE TABLE Factures(identifiant INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+date DATE NOT NULL,
+
+detail TEXT,
+
+status VARCHAR(1),
+
+montant INT NOT NULL,
+identifiant_prop INT,
+ FOREIGN KEY(identifiant_prop) REFERENCES Personne(identifiant)
+)
+ ENGINE=InnoDB;
+
+
+
+
+
