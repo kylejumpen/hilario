@@ -16,7 +16,7 @@ CREATE TABLE  IF NOT EXISTS  `employee` (
   CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`identifiant`) REFERENCES `personne` (`identifiant`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE  IF NOT EXISTS  `commande` (
+CREATE TABLE IF NOT EXISTS  `commande` (
   `identifiant` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL,
   `prix_negociee` int(11) NOT NULL,
