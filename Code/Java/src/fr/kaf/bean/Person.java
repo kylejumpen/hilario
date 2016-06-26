@@ -1,33 +1,41 @@
 package fr.kaf.bean;
 
+import javafx.beans.property.*;
+
 public class Person {
 
-	protected int id;
-	protected String firstName;
-	protected String lastName;
+	protected SimpleIntegerProperty id;
+	protected SimpleStringProperty firstName;
+	protected SimpleStringProperty lastName;
+	
+	public Person(){
+	this.id = new SimpleIntegerProperty();
+	this.firstName = new SimpleStringProperty();
+	this.lastName = new SimpleStringProperty();	
+	}
 	
 	public int getId() {
-		return id;
+		return id.get();
 	}
 	
 	protected void setId(int id) {
-		this.id = id;
+		this.id.set(id);
 	}
 	
 	public String getFirstName() {
-		return firstName;
+		return firstName.get();
 	}
 	
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstName.set(firstName);
 	}
 	
 	public String getLastName() {
-		return lastName;
+		return this.lastName.get();
 	}
 	
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.lastName.set(lastName);
 	}
 	
 }

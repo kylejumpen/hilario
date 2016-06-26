@@ -1,42 +1,44 @@
 package fr.kaf.bean;
 
+import javafx.beans.property.*;
+
 public class Shoe {
 
-	private int id;
-	private String reference;
-	private float price;
-	private String place;
+	private SimpleIntegerProperty id;
+	private SimpleStringProperty reference;
+	private SimpleFloatProperty price;
+	private SimpleObjectProperty<Place> place;
+	
+	public Shoe () {
+	this.id = new SimpleIntegerProperty();
+	this.reference = new SimpleStringProperty();
+	this.price = new SimpleFloatProperty();
+	this.place = new SimpleObjectProperty<Place>();
+	}
+	
 	
 	public int getId() {
-		return id;
+		return id.get();
 	}
 	
 	private void setId(int id) {
-		this.id = id;
+		this.id.set(id);
 	}
 	
 	public String getReference() {
-		return reference;
+		return reference.get();
 	}
 	
 	public void setReference(String reference) {
-		this.reference = reference;
+		this.reference.set(reference);
 	}
 	
 	public float getPrice() {
-		return price;
+		return price.get();
 	}
 	
 	public void setPrice(float price) {
-		this.price = price;
-	}
-	
-	public String getPlace() {
-		return place;
-	}
-	
-	public void setPlace(String place) {
-		this.place = place;
+		this.price.set(price);
 	}
 	
 }

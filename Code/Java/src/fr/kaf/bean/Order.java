@@ -2,53 +2,55 @@ package fr.kaf.bean;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
 
 public class Order {
 
-	private int id;
-	private SimpleDateFormat date;
-	private int realPrice;
-	private Person seller;
-	private List<Shoe> shoes;
+	private SimpleIntegerProperty id;
+	private SimpleObjectProperty<SimpleDateFormat> date;
+	private SimpleIntegerProperty realPrice;
+	private SimpleObjectProperty<Person> seller;
+	private SimpleListProperty<Shoe> shoes;
 	
 	public int getId() {
-		return id;
+		return id.get();
 	}
 	
 	private void setId(int id) {
-		this.id = id;
+		this.id.set(id);
 	}
 	
 	public SimpleDateFormat getDate() {
-		return date;
+		return date.get();
 	}
 	
 	public void setDate(SimpleDateFormat date) {
-		this.date = date;
+		this.date.set(date);
 	}
 	
 	public int getRealPrice() {
-		return realPrice;
+		return this.realPrice.get();
 	}
 	
 	public void setRealPrice(int realPrice) {
-		this.realPrice = realPrice;
+		this.realPrice.set(realPrice);
 	}
 	
 	public Person getSeller() {
-		return seller;
+		return this.seller.get();
 	}
 	
 	public void setSeller(Person seller) {
-		this.seller = seller;
+		this.seller.set(seller);
 	}
 
 	public List<Shoe> getShoes() {
-		return shoes;
+		return shoes.get();
 	}
 
 	public void setShoes(List<Shoe> shoes) {
-		this.shoes = shoes;
+		this.shoes.set(FXCollections.observableList(shoes));
 	}
 	
 	

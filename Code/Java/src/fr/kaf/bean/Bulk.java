@@ -3,34 +3,53 @@ package fr.kaf.bean;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+
 public class Bulk {
 
-	private int id;
-	private SimpleDateFormat date;
-	private Person Buyer;
-	private List<Shoe> shoes;
+	private SimpleIntegerProperty id;
+	private SimpleObjectProperty<SimpleDateFormat> date;
+	private SimpleObjectProperty<Person> buyer;
+	private SimpleListProperty<Shoe> shoes;
+	
+	public Bulk(){
+		this.id = new SimpleIntegerProperty();
+		this.date = new SimpleObjectProperty<SimpleDateFormat>();
+		this.buyer = new SimpleObjectProperty<Person>();
+		this.setShoes(new SimpleListProperty<Shoe>());
+	}
 	
 	public int getId() {
-		return id;
+		return this.id.get();
 	}
 	
 	private void setId(int id) {
-		this.id = id;
+		this.id.set(id);
 	}
 	
 	public SimpleDateFormat getDate() {
-		return date;
+		return date.get();
 	}
 	
 	public void setDate(SimpleDateFormat date) {
-		this.date = date;
+		this.date.set(date);
 	}
 	
 	public Person getBuyer() {
-		return Buyer;
+		return buyer.get();
 	}
 	
 	public void setBuyer(Person buyer) {
-		Buyer = buyer;
+		this.buyer.set(buyer);
 	}
+
+	public List<Shoe> getShoes() {
+		return shoes.get();
+	}
+
+	public void setShoes(List<Shoe> shoes) {
+		this.shoes.set(FXCollections.observableList(shoes));
+	}
+	
 }

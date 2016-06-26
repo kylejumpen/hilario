@@ -1,64 +1,74 @@
 package fr.kaf.bean;
 
+import javafx.beans.property.*;
 import java.text.SimpleDateFormat;
-import java.util.*;
 
 public class Bill {
 
-	private int id;
-	private SimpleDateFormat date;
-	private String detail;
-	private boolean paid;
-	private int amout;
-	private Person biller;
+	private SimpleIntegerProperty id;
+	private SimpleObjectProperty<SimpleDateFormat> date;
+	private SimpleStringProperty detail;
+	private SimpleBooleanProperty paid;
+	private SimpleIntegerProperty amount;
+	private SimpleObjectProperty<Person> biller;
 	
-	
-	public int getId() {
-		return id;
+	public Bill(){
+		this.id = new SimpleIntegerProperty();
+		this.date = new SimpleObjectProperty<SimpleDateFormat>();
+		this.detail = new SimpleStringProperty();
+		this.paid = new SimpleBooleanProperty();
+		this.amount = new SimpleIntegerProperty();
+		this.biller = new SimpleObjectProperty<Person>();
 	}
 	
-	protected void setId(int id) {
-		this.id = id;
+	public int getId() {
+		return id.get();
+	}
+	
+	private void setId(int id) {
+		this.id.set(id);
 	}
 	
 	public SimpleDateFormat getDate() {
-		return date;
+		return date.get();
 	}
 	
 	public void setDate(SimpleDateFormat date) {
-		this.date = date;
+		this.date.set(date);
 	}
 	
 	public String getDetail() {
-		return detail;
+		return detail.get();
 	}
 	
 	public void setDetail(String detail) {
-		this.detail = detail;
+		this.detail.set(detail);
 	}
 	
-	public boolean isPaid() {
-		return paid;
+	public Boolean getPaid() {
+		return paid.get();
 	}
 	
 	public void setPaid(boolean paid) {
-		this.paid = paid;
+		this.paid.get();
 	}
 	
-	public int getAmout() {
-		return amout;
+	public Integer getAmout() {
+		return amount.get();
 	}
 	
 	public void setAmout(int amout) {
-		this.amout = amout;
+		this.amount.set(amout);
 	}
 	
 	public Person getBiller() {
-		return biller;
+		return biller.get();
 	}
 	
 	public void setBiller(Person biller) {
-		this.biller = biller;
+		this.biller.set(biller);
 	}
+	
+	
 	
 }
