@@ -1,4 +1,4 @@
 /bin/
 
 .settings/
-src/fr/kaf/connection/
+src/fr/kaf/connection/*
