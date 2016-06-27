@@ -6,37 +6,30 @@
 
 <HBox maxHeight="200.0" maxWidth="500.0" minHeight="100.0" minWidth="300.0" prefHeight="150.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.HomeController">
    <children>
-      <Button mnemonicParsing="false" text="Button">
+      <Button mnemonicParsing="false" text="Comptabilité">
          <HBox.margin>
-            <Insets left="20.0" right="20.0" top="50.0" />
+            <Insets left="5.0" right="5.0" top="50.0" />
          </HBox.margin>
-         <padding>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-         </padding>
       </Button>
-      <Button mnemonicParsing="false" text="Button">
+      <Button mnemonicParsing="false" text="Commande">
          <HBox.margin>
-            <Insets left="20.0" right="20.0" top="50.0" />
+            <Insets left="5.0" right="5.0" top="50.0" />
          </HBox.margin>
-         <padding>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-         </padding>
       </Button>
-      <Button mnemonicParsing="false" text="Button">
+      <Button mnemonicParsing="false" text="Ressources Humaines">
          <HBox.margin>
-            <Insets left="20.0" right="20.0" top="50.0" />
+            <Insets left="5.0" right="5.0" top="50.0" />
          </HBox.margin>
-         <padding>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-         </padding>
       </Button>
-      <Button mnemonicParsing="false" text="Button">
+      <Button mnemonicParsing="false" text="Stock">
          <HBox.margin>
-            <Insets left="20.0" right="20.0" top="50.0" />
+            <Insets left="5.0" right="5.0" top="50.0" />
          </HBox.margin>
-         <padding>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-         </padding>
+      </Button>
+      <Button alignment="BOTTOM_RIGHT" cancelButton="true" mnemonicParsing="false" text="Quitter">
+         <HBox.margin>
+            <Insets left="5.0" top="100.0" />
+         </HBox.margin>
       </Button>
    </children>
 </HBox>
