@@ -81,12 +81,20 @@
                   <Insets left="25.0" />
                </StackPane.margin>
             </Label>
-            <RadioButton maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" selected="true" text="En gros" StackPane.alignment="CENTER" />
-            <RadioButton maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Unité" StackPane.alignment="CENTER_RIGHT">
+            <RadioButton maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" selected="true" text="En gros" StackPane.alignment="CENTER">
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin></RadioButton>
+            <RadioButton maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Unité" StackPane.alignment="CENTER">
+               <StackPane.margin>
+                  <Insets left="170.0" />
+               </StackPane.margin>
+            </RadioButton>
+            <Button mnemonicParsing="false" text="Ajouter" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="25.0" />
                </StackPane.margin>
-            </RadioButton>
+            </Button>
          </children>
       </StackPane>
       <TreeTableView prefHeight="200.0" prefWidth="200.0">
