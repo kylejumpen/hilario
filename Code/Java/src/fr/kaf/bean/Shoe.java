@@ -41,4 +41,11 @@ public class Shoe {
 		this.price.set(price);
 	}
 	
+	public Place getPlace() {
+		return this.place.get();
+	}
+	
+	public void setPlace(Place place) {
+		this.setPlace(place);
+	}
 }

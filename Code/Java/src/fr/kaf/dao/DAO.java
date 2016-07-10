@@ -29,7 +29,8 @@ public abstract class DAO<T> {
 	 * Update Method
 	 * @param obj
 	 * @return boolean
+	 * @throws SQLException 
 	 */
-	 public abstract boolean update(T obj);
+	 public abstract boolean update(T obj) throws SQLException;
 	 
 }

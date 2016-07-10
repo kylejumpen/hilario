@@ -1,9 +1,12 @@
 package fr.kaf.dao.implement;
 
-import java.sql.Connection;
+import java.sql.*;
+import java.util.ArrayList;
 
 import fr.kaf.bean.Employee;
 import fr.kaf.dao.DAO;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
 
 public class EmployeeDAO extends DAO<Employee> {
 
@@ -13,22 +16,56 @@ public class EmployeeDAO extends DAO<Employee> {
 	}
 
 	@Override
-	public boolean create(Employee obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean create(Employee mate) throws SQLException {
+		PreparedStatement createQuery = this.connect.prepareStatement("INSERT into personne(nom,prenom,mot_passe,type) values(?,?,?,false);");
+		createQuery.setString(1, mate.getFirstName());
+		createQuery.setString(2, mate.getLastName());
+		createQuery.setString(3, mate.getPassword());
+		createQuery.execute();
+		createQuery = this.connect.prepareStatement("SELECT identifiant from personne WHERE nom= ? ORDER BY identifiant DESC LIMIT 1;");
+		ResultSet idsql = createQuery.executeQuery();
+		int idEmp = idsql.getInt(1);
+		createQuery = this.connect.prepareStatement("INSERT into employee(identifiant,droits,salaire) values(?,?,?);");
+		createQuery.setInt(1, idEmp);
+		createQuery.setString(2,String.valueOf(mate.getDroit()));
+		createQuery.setInt(3, mate.getSalary());
+		return createQuery.execute();
 	}
 
 	@Override
-	public boolean delete(Employee obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(Employee mate) throws SQLException {
+		PreparedStatement deleteQuery = this.connect.prepareStatement("DELETE FROM employee WHERE identifiant = ?;");
+		deleteQuery.setInt(1, mate.getId());
+		deleteQuery.execute();
+		deleteQuery = this.connect.prepareStatement("DELETE FROM personne WHERE identifiant = ?;");
+		deleteQuery.setInt(1, mate.getId());
+		return deleteQuery.execute();
 	}
 
 	@Override
-	public boolean update(Employee obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(Employee mate) throws SQLException {
+		PreparedStatement updateQuery = this.connect.prepareStatement("UPDATE personne SET nom= ?, prenom = ?, mot_passe=? WHERE identifiant= ?;");
+		updateQuery.setString(1, mate.getFirstName());
+		updateQuery.setString(2, mate.getLastName());
+		updateQuery.setString(3, mate.getPassword());
+		updateQuery.setInt(4,mate.getId());
+		updateQuery.execute();
+		updateQuery = this.connect.prepareStatement("UPDATE employee SET droits= ?, salaire = ? WHERE identifiant= ?;");
+		updateQuery.setString(1, String.valueOf(mate.getDroit()));
+		updateQuery.setInt(2, mate.getSalary());
+		updateQuery.setInt(3,mate.getId());
+		return updateQuery.execute();
 	}
 
-	
+	public SimpleListProperty<Employee> findAll() throws SQLException{
+		Statement query = this.connect.createStatement();
+		ResultSet results = query.executeQuery("Select identifiant,nom,prenom,mot_passe,droits,salaire from personne Natural JOIN employee;");
+		ArrayList<Employee> people = new ArrayList<Employee>();
+		while(results.next()){
+			people.add(new Employee(results.getInt(1),results.getString(2),results.getString(3),results.getString(4),results.getString(5).charAt(0),results.getInt(6)));
+		}
+		
+		SimpleListProperty<Employee> list = new SimpleListProperty<Employee>(FXCollections.observableArrayList(people)) ;
+		return list;
+	}
 }
