@@ -13,15 +13,17 @@ public abstract class DAO<T> {
 	 * Creation Method
 	 * @param obj
 	 * @return boolean 
+	 * @throws SQLException 
 	 */
-	 public abstract boolean create(T obj);
+	 public abstract boolean create(T obj) throws SQLException;
 
 	 /**
 	 * Delete Method
 	 * @param obj
 	 * @return boolean 
+	 * @throws SQLException 
 	 */
-	 public abstract boolean delete(T obj);
+	 public abstract boolean delete(T obj) throws SQLException;
 
 	 /**
 	 * Update Method
