@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import fr.kaf.bean.Employee;
 import fr.kaf.dao.DAO;
 import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 
 public class EmployeeDAO extends DAO<Employee> {
@@ -55,6 +56,15 @@ public class EmployeeDAO extends DAO<Employee> {
 		updateQuery.setInt(2, mate.getSalary());
 		updateQuery.setInt(3,mate.getId());
 		return updateQuery.execute();
+	}
+	
+	public SimpleObjectProperty<Employee> find(int id) throws SQLException{
+		PreparedStatement retrieveQuery = this.connect.prepareStatement("Select identifiant,nom,prenom,mot_passe,droits,salaire from personne Natural JOIN employee WHERE identifiant= ?;");
+		retrieveQuery.setInt(1, id);
+		ResultSet result = retrieveQuery.executeQuery();
+		if(result.first())
+			return new SimpleObjectProperty<Employee>(new Employee(result.getInt(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5).charAt(0),result.getInt(6)));
+		return null;
 	}
 
 	public SimpleListProperty<Employee> findAll() throws SQLException{

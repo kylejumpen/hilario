@@ -45,9 +45,11 @@ public class PersonDAO extends DAO<Person>{
 	
 	public SimpleObjectProperty<Person> find(int id) throws SQLException{
 		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT identifiant,nom,prenom,mot_passe FROM personne WHERE identifiant= ?;");
+		retrieveQuery.setInt(1, id);
 		ResultSet result = retrieveQuery.executeQuery();
-		result.first();
-		return new SimpleObjectProperty<Person>(new Person(result.getInt(1),result.getString(2),result.getString(3),result.getString(4)));
+		if(result.first())
+			return new SimpleObjectProperty<Person>(new Person(result.getInt(1),result.getString(2),result.getString(3),result.getString(4)));
+		return null;
 	}
 	
 	public SimpleListProperty<Person> findAll() throws SQLException{

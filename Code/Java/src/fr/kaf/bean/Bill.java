@@ -1,24 +1,42 @@
 package fr.kaf.bean;
 
 import javafx.beans.property.*;
-import java.text.SimpleDateFormat;
+
+import java.util.Date;
 
 public class Bill {
 
 	private SimpleIntegerProperty id;
-	private SimpleObjectProperty<SimpleDateFormat> date;
+	private SimpleObjectProperty<Date> date;
 	private SimpleStringProperty detail;
 	private SimpleBooleanProperty paid;
-	private SimpleIntegerProperty amount;
+	private SimpleLongProperty amount;
 	private SimpleObjectProperty<Person> biller;
 	
 	public Bill(){
 		this.id = new SimpleIntegerProperty();
-		this.date = new SimpleObjectProperty<SimpleDateFormat>();
+		this.date = new SimpleObjectProperty<Date>();
 		this.detail = new SimpleStringProperty();
 		this.paid = new SimpleBooleanProperty();
-		this.amount = new SimpleIntegerProperty();
+		this.amount = new SimpleLongProperty();
 		this.biller = new SimpleObjectProperty<Person>();
+	}
+	
+	public Bill(int id, Date date, String details, boolean paid, long amount, Person biller){
+		this.id = new SimpleIntegerProperty(id);
+		this.date = new SimpleObjectProperty<Date>(date);
+		this.detail = new SimpleStringProperty(details);
+		this.paid = new SimpleBooleanProperty(paid);
+		this.amount = new SimpleLongProperty(amount);
+		this.biller = new SimpleObjectProperty<Person>(biller);
+	}
+
+	public Bill(Date date, String details, boolean paid, long amount, Person biller){
+		this.date = new SimpleObjectProperty<Date>(date);
+		this.detail = new SimpleStringProperty(details);
+		this.paid = new SimpleBooleanProperty(paid);
+		this.amount = new SimpleLongProperty(amount);
+		this.biller = new SimpleObjectProperty<Person>(biller);
 	}
 	
 	public int getId() {
@@ -29,11 +47,11 @@ public class Bill {
 		this.id.set(id);
 	}
 	
-	public SimpleDateFormat getDate() {
+	public Date getDate() {
 		return date.get();
 	}
 	
-	public void setDate(SimpleDateFormat date) {
+	public void setDate(Date date) {
 		this.date.set(date);
 	}
 	
@@ -53,11 +71,11 @@ public class Bill {
 		this.paid.get();
 	}
 	
-	public Integer getAmout() {
+	public long getAmout() {
 		return amount.get();
 	}
 	
-	public void setAmout(int amout) {
+	public void setAmout(long amout) {
 		this.amount.set(amout);
 	}
 	
