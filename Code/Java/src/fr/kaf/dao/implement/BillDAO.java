@@ -4,12 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.sql.Date;
 
 import fr.kaf.bean.Bill;
+import fr.kaf.bean.Employee;
 import fr.kaf.bean.Person;
 import fr.kaf.dao.DAO;
 import javafx.beans.property.*;
+import javafx.collections.FXCollections;
 
 public class BillDAO extends DAO<Bill>{
 
@@ -48,14 +51,23 @@ public class BillDAO extends DAO<Bill>{
 		return updateQuery.execute();
 	}
 	
-	/** Réfléchir à lazy loading ou pas ?  **/
 	public SimpleObjectProperty<Bill> find(int id) throws SQLException {
 		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * from factures WHERE identifiant = ?;");
 		retrieveQuery.setInt(1, id);
 		ResultSet result = retrieveQuery.executeQuery();
 		if(result.first()) // Requete a travailler en fonction du choix
-			return new SimpleObjectProperty<Bill>(new Bill(result.getInt(1),result.getDate(2),result.getString(3),result.getBoolean(4),result.getLong(6),new Person())); 
+			return new SimpleObjectProperty<Bill>(new Bill(result.getInt(1),result.getDate(2),result.getString(3),result.getBoolean(4),result.getLong(6),result.getInt(5))); 
 		return null;
+	}
+	
+	public SimpleListProperty<Bill> findAll() throws SQLException {
+		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * from factures;");
+		ResultSet result = retrieveQuery.executeQuery();
+		ArrayList<Bill> bills = new ArrayList<Bill>();
+		while(result.next()) // Requete a travailler en fonction du choix
+			bills.add(new Bill(result.getInt(1),result.getDate(2),result.getString(3),result.getBoolean(4),result.getLong(6),result.getInt(5))); 
+		return new SimpleListProperty<Bill>(FXCollections.observableArrayList(bills));
+		
 	}
 }
 

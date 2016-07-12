@@ -16,6 +16,19 @@ public class Shoe {
 	this.place = new SimpleObjectProperty<Place>();
 	}
 	
+	public Shoe(String reference, float price, Place place){
+		this.reference = new SimpleStringProperty(reference);
+		this.price = new SimpleFloatProperty(price);
+		this.place = new SimpleObjectProperty<Place>(place);
+	}
+	
+	public Shoe(int id, String reference, float price, String place){
+		this.id = new SimpleIntegerProperty(id);
+		this.reference = new SimpleStringProperty(reference);
+		this.price = new SimpleFloatProperty(price);
+		this.place.get().setName(place);
+	}
+	
 	
 	public int getId() {
 		return id.get();

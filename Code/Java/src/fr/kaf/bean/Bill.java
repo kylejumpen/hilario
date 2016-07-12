@@ -22,13 +22,13 @@ public class Bill {
 		this.biller = new SimpleObjectProperty<Person>();
 	}
 	
-	public Bill(int id, Date date, String details, boolean paid, long amount, Person biller){
+	public Bill(int id, Date date, String details, boolean paid, long amount, int biller){
 		this.id = new SimpleIntegerProperty(id);
 		this.date = new SimpleObjectProperty<Date>(date);
 		this.detail = new SimpleStringProperty(details);
 		this.paid = new SimpleBooleanProperty(paid);
 		this.amount = new SimpleLongProperty(amount);
-		this.biller = new SimpleObjectProperty<Person>(biller);
+		this.biller.get().setId(biller); 
 	}
 
 	public Bill(Date date, String details, boolean paid, long amount, Person biller){

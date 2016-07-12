@@ -1,6 +1,6 @@
 package fr.kaf.dao.implement;
 
-import java.sql.Connection;
+import java.sql.*;
 import fr.kaf.bean.Shoe;
 import fr.kaf.dao.DAO;
 
@@ -12,19 +12,19 @@ public class ShoeDAO extends DAO<Shoe>{
 	}
 
 	@Override
-	public boolean create(Shoe obj) {
+	public boolean create(Shoe shoe) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(Shoe obj) {
+	public boolean delete(Shoe shoe) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean update(Shoe obj) {
+	public boolean update(Shoe shoe) {
 		// TODO Auto-generated method stub
 		return false;
 	}

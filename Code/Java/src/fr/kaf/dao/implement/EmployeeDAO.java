@@ -74,8 +74,6 @@ public class EmployeeDAO extends DAO<Employee> {
 		while(results.next()){
 			people.add(new Employee(results.getInt(1),results.getString(2),results.getString(3),results.getString(4),results.getString(5).charAt(0),results.getInt(6)));
 		}
-		
-		SimpleListProperty<Employee> list = new SimpleListProperty<Employee>(FXCollections.observableArrayList(people)) ;
-		return list;
+		return new SimpleListProperty<Employee>(FXCollections.observableArrayList(people));
 	}
 }

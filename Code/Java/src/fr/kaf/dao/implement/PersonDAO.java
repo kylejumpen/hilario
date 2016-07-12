@@ -60,8 +60,7 @@ public class PersonDAO extends DAO<Person>{
 			people.add(new Person(results.getInt(1),results.getString(2),results.getString(3),results.getString(4)));
 		}
 		
-		SimpleListProperty<Person> list = new SimpleListProperty<Person>(FXCollections.observableArrayList(people)) ;
-		return list;
+		return new SimpleListProperty<Person>(FXCollections.observableArrayList(people));
 	}
 	
 }
