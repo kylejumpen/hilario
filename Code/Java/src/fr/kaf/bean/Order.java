@@ -17,7 +17,7 @@ public class Order {
 		return id.get();
 	}
 	
-	private void setId(int id) {
+	public void setId(int id) {
 		this.id.set(id);
 	}
 	

@@ -28,6 +28,7 @@ public class Bill {
 		this.detail = new SimpleStringProperty(details);
 		this.paid = new SimpleBooleanProperty(paid);
 		this.amount = new SimpleLongProperty(amount);
+		this.biller = new SimpleObjectProperty<Person>();
 		this.biller.get().setId(biller); 
 	}
 

@@ -8,25 +8,36 @@ public class Shoe {
 	private SimpleStringProperty reference;
 	private SimpleFloatProperty price;
 	private SimpleObjectProperty<Place> place;
+	private SimpleObjectProperty<Order> order;
+	private SimpleObjectProperty<Bulk> bulk;
 	
 	public Shoe () {
 	this.id = new SimpleIntegerProperty();
 	this.reference = new SimpleStringProperty();
 	this.price = new SimpleFloatProperty();
 	this.place = new SimpleObjectProperty<Place>();
+	this.order = new SimpleObjectProperty<Order>();
+	this.bulk = new SimpleObjectProperty<Bulk>();
 	}
 	
 	public Shoe(String reference, float price, Place place){
 		this.reference = new SimpleStringProperty(reference);
 		this.price = new SimpleFloatProperty(price);
 		this.place = new SimpleObjectProperty<Place>(place);
+		this.order = new SimpleObjectProperty<Order>();
+		this.bulk = new SimpleObjectProperty<Bulk>();
 	}
 	
-	public Shoe(int id, String reference, float price, String place){
+	public Shoe(int id, String reference, float price, String place, int order, int bulk){
 		this.id = new SimpleIntegerProperty(id);
 		this.reference = new SimpleStringProperty(reference);
 		this.price = new SimpleFloatProperty(price);
+		this.place = new SimpleObjectProperty<Place>();
 		this.place.get().setName(place);
+		this.order = new SimpleObjectProperty<Order>();
+		this.order.get().setId(order);
+		this.bulk = new SimpleObjectProperty<Bulk>();
+		this.bulk.get().setId(bulk);
 	}
 	
 	
@@ -60,5 +71,21 @@ public class Shoe {
 	
 	public void setPlace(Place place) {
 		this.setPlace(place);
+	}
+	
+	public Order getOrder() {
+		return this.order.get();
+	}
+	
+	public void setOrder(Order order) {
+		this.setOrder(order);
+	}
+	
+	public Bulk getBulk() {
+		return this.bulk.get();
+	}
+	
+	public void setBulk(Bulk bulk) {
+		this.setBulk(bulk);
 	}
 }
