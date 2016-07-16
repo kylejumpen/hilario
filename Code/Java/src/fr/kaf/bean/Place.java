@@ -7,6 +7,11 @@ public class Place {
 	private SimpleBooleanProperty boutique;
 	private SimpleStringProperty name;
 	
+	public Place(){
+		this.boutique = new SimpleBooleanProperty(false);
+		this.name = new SimpleStringProperty();
+	}
+	
 	public Place(String name,Boolean boutique){
 		this.boutique = new SimpleBooleanProperty(boutique);
 		this.name = new SimpleStringProperty(name);

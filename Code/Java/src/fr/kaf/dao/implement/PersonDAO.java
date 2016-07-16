@@ -12,7 +12,6 @@ public class PersonDAO extends DAO<Person>{
 
 	public PersonDAO(Connection conn) {
 		super(conn);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -26,10 +25,8 @@ public class PersonDAO extends DAO<Person>{
 
 	@Override
 	public boolean delete(Person mate) throws SQLException {
-		// TODO Auto-generated method stub
 		PreparedStatement deleteQuery = this.connect.prepareStatement("DELETE FROM personne WHERE identifiant = ?;");
 		deleteQuery.setInt(1, mate.getId());
-		deleteQuery.toString();
 		return deleteQuery.execute();
 	}
 

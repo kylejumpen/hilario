@@ -18,6 +18,13 @@ public class Employee extends Person{
 		this.salary = new SimpleIntegerProperty(salary);
 		this.droit = new SimpleObjectProperty<Character>(droits);
 	}
+	
+	public Employee(String firstName, String lastName, String password, char droits, int salary) {
+		super(firstName,lastName,password);
+		this.salary = new SimpleIntegerProperty(salary);
+		this.droit = new SimpleObjectProperty<Character>(droits);
+	}
+	
 	public int getSalary() {
 		return salary.get();
 	}
