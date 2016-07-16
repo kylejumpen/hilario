@@ -9,15 +9,27 @@ import javafx.collections.FXCollections;
 public class Bulk {
 
 	private SimpleIntegerProperty id;
-	private SimpleObjectProperty<SimpleDateFormat> date;
+	private SimpleObjectProperty<Date> date;
 	private SimpleObjectProperty<Person> buyer;
+	private SimpleObjectProperty<Person> provider;
 	private SimpleListProperty<Shoe> shoes;
 	
 	public Bulk(){
 		this.id = new SimpleIntegerProperty();
-		this.date = new SimpleObjectProperty<SimpleDateFormat>();
-		this.buyer = new SimpleObjectProperty<Person>();
-		this.setShoes(new SimpleListProperty<Shoe>());
+		this.date = new SimpleObjectProperty<>();
+		this.buyer = new SimpleObjectProperty<>();
+		this.provider = new SimpleObjectProperty<>();
+		this.shoes = new SimpleListProperty<>();
+	}
+	
+	public Bulk(int id, Date date, int idBuyer, int idProvider){
+		this.id = new SimpleIntegerProperty(id);
+		this.date = new SimpleObjectProperty<>(date);
+		this.buyer = new SimpleObjectProperty<>();
+		this.getBuyer().setId(idBuyer);
+		this.provider = new SimpleObjectProperty<>();
+		this.getProvider().setId(idProvider);
+		this.shoes = new SimpleListProperty<>();
 	}
 	
 	public int getId() {
@@ -28,11 +40,11 @@ public class Bulk {
 		this.id.set(id);
 	}
 	
-	public SimpleDateFormat getDate() {
+	public Date getDate() {
 		return date.get();
 	}
 	
-	public void setDate(SimpleDateFormat date) {
+	public void setDate(Date date) {
 		this.date.set(date);
 	}
 	
@@ -44,6 +56,15 @@ public class Bulk {
 		this.buyer.set(buyer);
 	}
 
+	
+	public Person getProvider() {
+		return provider.get();
+	}
+	
+	public void setProvider(Person provider) {
+		this.buyer.set(provider);
+	}
+	
 	public List<Shoe> getShoes() {
 		return shoes.get();
 	}

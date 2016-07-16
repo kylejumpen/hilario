@@ -1,5 +1,6 @@
 package fr.kaf.bean;
 
+import java.util.*;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import javafx.beans.property.*;
@@ -8,10 +9,18 @@ import javafx.collections.FXCollections;
 public class Order {
 
 	private SimpleIntegerProperty id;
-	private SimpleObjectProperty<SimpleDateFormat> date;
+	private SimpleObjectProperty<Date> date;
 	private SimpleIntegerProperty realPrice;
 	private SimpleObjectProperty<Person> seller;
 	private SimpleListProperty<Shoe> shoes;
+	
+	public Order(int id, Date date, int realPrice, int seller){
+		this.id = new SimpleIntegerProperty(id);
+		this.date = new SimpleObjectProperty<>(date);
+		this.realPrice = new SimpleIntegerProperty(realPrice);
+		this.seller = new SimpleObjectProperty<>();
+		this.seller.get().setId(seller);
+	}
 	
 	public int getId() {
 		return id.get();
@@ -21,11 +30,11 @@ public class Order {
 		this.id.set(id);
 	}
 	
-	public SimpleDateFormat getDate() {
+	public Date getDate() {
 		return date.get();
 	}
 	
-	public void setDate(SimpleDateFormat date) {
+	public void setDate(Date date) {
 		this.date.set(date);
 	}
 	

@@ -51,9 +51,9 @@ public class BillDAO extends DAO<Bill>{
 		return updateQuery.execute();
 	}
 	
-	public SimpleObjectProperty<Bill> find(int id) throws SQLException {
+	public SimpleObjectProperty<Bill> find(int idbill) throws SQLException {
 		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * from factures WHERE identifiant = ?;");
-		retrieveQuery.setInt(1, id);
+		retrieveQuery.setInt(1, idbill);
 		ResultSet result = retrieveQuery.executeQuery();
 		if(result.first()) // Requete a travailler en fonction du choix
 			return new SimpleObjectProperty<Bill>(new Bill(result.getInt(1),result.getDate(2),result.getString(3),result.getBoolean(4),result.getLong(6),result.getInt(5))); 

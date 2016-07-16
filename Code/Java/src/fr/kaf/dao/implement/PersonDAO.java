@@ -44,11 +44,11 @@ public class PersonDAO extends DAO<Person>{
 	}
 	
 	public SimpleObjectProperty<Person> find(int id) throws SQLException{
-		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT identifiant,nom,prenom,mot_passe FROM personne WHERE identifiant= ?;");
+		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT nom,prenom,mot_passe FROM personne WHERE identifiant= ?;");
 		retrieveQuery.setInt(1, id);
 		ResultSet result = retrieveQuery.executeQuery();
 		if(result.first())
-			return new SimpleObjectProperty<Person>(new Person(result.getInt(1),result.getString(2),result.getString(3),result.getString(4)));
+			return new SimpleObjectProperty<Person>(new Person(id,result.getString(1),result.getString(2),result.getString(3)));
 		return null;
 	}
 	
@@ -56,9 +56,8 @@ public class PersonDAO extends DAO<Person>{
 		Statement query = this.connect.createStatement();
 		ResultSet results = query.executeQuery("SELECT identifiant,nom,prenom,mot_passe FROM personne WHERE type=true;");
 		ArrayList<Person> people = new ArrayList<Person>();
-		while(results.next()){
+		while(results.next())
 			people.add(new Person(results.getInt(1),results.getString(2),results.getString(3),results.getString(4)));
-		}
 		
 		return new SimpleListProperty<Person>(FXCollections.observableArrayList(people));
 	}
