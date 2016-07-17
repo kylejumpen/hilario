@@ -22,32 +22,26 @@ public class Bill {
 		this.biller = new SimpleObjectProperty<Person>();
 	}
 	
-	public Bill(int id, Date date, String details, boolean paid, long amount, SimpleObjectProperty<Person> biller){
+	public Bill(int id, Date date, String details, boolean paid, long amount, Person biller){
 		this.id = new SimpleIntegerProperty(id);
 		this.date = new SimpleObjectProperty<Date>(date);
 		this.detail = new SimpleStringProperty(details);
 		this.paid = new SimpleBooleanProperty(paid);
 		this.amount = new SimpleLongProperty(amount);
-		this.biller = new SimpleObjectProperty<Person>();
-		this.biller = biller;
+		this.biller = new SimpleObjectProperty<Person>(biller);
 	}
 
-	public Bill(Date date, String details, boolean paid, long amount, SimpleObjectProperty<Person> biller){
+	public Bill(Date date, String details, boolean paid, long amount, Person biller){
 		this.id = new SimpleIntegerProperty();
 		this.date = new SimpleObjectProperty<Date>(date);
 		this.detail = new SimpleStringProperty(details);
 		this.paid = new SimpleBooleanProperty(paid);
 		this.amount = new SimpleLongProperty(amount);
-		this.biller = new SimpleObjectProperty<Person>();
-		this.biller = biller;
+		this.biller = new SimpleObjectProperty<Person>(biller);
 	}
 	
 	public int getId() {
 		return id.get();
-	}
-	
-	private void setId(int id) {
-		this.id.set(id);
 	}
 	
 	public Date getDate() {
@@ -82,12 +76,12 @@ public class Bill {
 		this.amount.set(amout);
 	}
 	
-	public SimpleObjectProperty<Person> getBiller() {
-		return biller;
+	public Person getBiller() {
+		return biller.get();
 	}
 	
-	public void setBiller(SimpleObjectProperty<Person> biller) {
-		this.biller = biller;
+	public void setBiller(Person biller) {
+		this.biller.set(biller);
 	}
 	
 	

@@ -24,7 +24,7 @@ public class BillDAO extends DAO<Bill>{
 			createQuery.setDate(1,(Date) invoice.getDate());
 			createQuery.setString(2, invoice.getDetail());
 			createQuery.setBoolean(3, invoice.getPaid());
-			createQuery.setInt(4, invoice.getBiller().get().getId());
+			createQuery.setInt(4, invoice.getBiller().getId());
 			createQuery.setLong(5, invoice.getAmout());
 			return createQuery.execute();
 	}
@@ -42,7 +42,7 @@ public class BillDAO extends DAO<Bill>{
 			updateQuery.setDate(1,(Date) invoice.getDate());
 			updateQuery.setString(2, invoice.getDetail());
 			updateQuery.setBoolean(3, invoice.getPaid());
-			updateQuery.setInt(4, invoice.getBiller().get().getId());
+			updateQuery.setInt(4, invoice.getBiller().getId());
 			updateQuery.setLong(5, invoice.getAmout());
 			updateQuery.setInt(6, invoice.getId());
 		return updateQuery.execute();
@@ -53,8 +53,8 @@ public class BillDAO extends DAO<Bill>{
 		retrieveQuery.setInt(1, idbill);
 		ResultSet result = retrieveQuery.executeQuery();
 		PersonDAO personDAO = new PersonDAO(this.connect);
-		if(result.first()) // Requete a travailler en fonction du choix
-			return new SimpleObjectProperty<Bill>(new Bill(result.getInt(1),result.getDate(2),result.getString(3),result.getBoolean(4),result.getLong(6),personDAO.find(result.getInt(5)))); 
+		if(result.first()) 
+			return new SimpleObjectProperty<Bill>(new Bill(result.getInt(1),result.getDate(2),result.getString(3),result.getBoolean(4),result.getLong(6),personDAO.find(result.getInt(5)).get())); 
 		return null;
 	}
 	
@@ -64,7 +64,7 @@ public class BillDAO extends DAO<Bill>{
 		ArrayList<Bill> bills = new ArrayList<Bill>();
 		PersonDAO personDAO = new PersonDAO(this.connect);
 		while(result.next()) // Requete a travailler en fonction du choix
-			bills.add(new Bill(result.getInt(1),result.getDate(2),result.getString(3),result.getBoolean(4),result.getLong(6),personDAO.find(result.getInt(5)))); 
+			bills.add(new Bill(result.getInt(1),result.getDate(2),result.getString(3),result.getBoolean(4),result.getLong(6),personDAO.find(result.getInt(5)).get())); 
 		return new SimpleListProperty<Bill>(FXCollections.observableArrayList(bills));
 		
 	}
