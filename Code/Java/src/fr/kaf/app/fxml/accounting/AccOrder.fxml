@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<fx:root maxHeight="300.0" maxWidth="500.0" minHeight="300.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" type="VBox" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+<VBox fx:id="AccOrder" maxHeight="300.0" maxWidth="500.0" minHeight="300.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.accounting.AccOrderController">
    <children>
       <StackPane maxHeight="50.0" minHeight="40.0" prefHeight="50.0">
          <VBox.margin>
@@ -58,7 +57,7 @@
          <children>
             <Button mnemonicParsing="false" text="Détails" StackPane.alignment="CENTER_LEFT" />
             <Button mnemonicParsing="false" text="Supprimer" />
-            <Button mnemonicParsing="false" text="Quitter" StackPane.alignment="CENTER_RIGHT">
+            <Button mnemonicParsing="false" onAction="#goAccounting" text="Retour au menu" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets />
                </StackPane.margin>
@@ -66,4 +65,4 @@
          </children>
       </StackPane>
    </children>
-</fx:root>
+</VBox>

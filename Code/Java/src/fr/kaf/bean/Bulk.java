@@ -1,6 +1,5 @@
 package fr.kaf.bean;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javafx.beans.property.*;

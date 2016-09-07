@@ -9,22 +9,22 @@
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#goAccounting" text="Comptabilité" StackPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goAccountingAction" text="Comptabilité" StackPane.alignment="CENTER">
                <StackPane.margin>
                   <Insets left="55.0" />
                </StackPane.margin>
             </Button>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#goCommand" text="Commande" StackPane.alignment="CENTER_LEFT">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#goCommandAction" text="Commande" StackPane.alignment="CENTER_LEFT">
                <StackPane.margin>
                   <Insets left="15.0" />
                </StackPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#goHumanRessources" text="Ressources Humaines" StackPane.alignment="CENTER_RIGHT">
+            <Button mnemonicParsing="false" onAction="#goHumanRessourcesAction" text="Ressources Humaines" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin>
             </Button>
-            <Button maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#goStock" prefWidth="80.0" text="Stock" StackPane.alignment="CENTER">
+            <Button maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#goStockAction" prefWidth="80.0" text="Stock" StackPane.alignment="CENTER">
                <StackPane.margin>
                   <Insets left="1.0" right="200.0" />
                </StackPane.margin>
@@ -33,7 +33,7 @@
       </StackPane>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <Button fx:id="closeButton" alignment="BOTTOM_RIGHT" cancelButton="true" mnemonicParsing="false" onAction="#closeButtonAction" text="Quitter" StackPane.alignment="BOTTOM_RIGHT">
+            <Button alignment="BOTTOM_RIGHT" cancelButton="true" mnemonicParsing="false" onAction="#closeButtonAction" text="Quitter" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets bottom="15.0" right="15.0" />
                </StackPane.margin>

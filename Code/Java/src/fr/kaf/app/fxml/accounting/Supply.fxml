@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<fx:root maxWidth="750.0" minWidth="750.0" prefWidth="750.0" type="HBox" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="Supply" maxWidth="750.0" minWidth="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.accounting.SupplyController">
    <children>
       <VBox maxHeight="300.0" maxWidth="400.0" minHeight="300.0" minWidth="400.0">
          <children>
@@ -57,7 +56,7 @@
                </VBox.margin>
                <children>
                   <Button mnemonicParsing="false" text="Supprimer" StackPane.alignment="CENTER_LEFT" />
-                  <Button mnemonicParsing="false" text="Quitter" StackPane.alignment="CENTER_RIGHT" />
+                  <Button mnemonicParsing="false" onAction="#goAccounting" text="Retour au menu" StackPane.alignment="CENTER_RIGHT" />
                </children>
             </StackPane>
          </children>
@@ -137,4 +136,4 @@
          </children>
       </VBox>
    </children>
-</fx:root>
+</HBox>

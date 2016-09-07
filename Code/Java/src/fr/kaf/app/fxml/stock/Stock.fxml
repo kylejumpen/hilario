@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox fx:id="Stock" maxWidth="525.0" minWidth="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.stock.StockController">
+   <children>
+      <ButtonBar buttonMinWidth="150.0" prefHeight="40.0" prefWidth="450.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#goConsultStockAction" text="Consulter les stock" />
+            <Button mnemonicParsing="false" onAction="#goAddStockAction" text="Ajouter du stock" />
+            <Button mnemonicParsing="false" disable="true" text="Ajouter un emplacement" />
+        </buttons>
+         <VBox.margin>
+            <Insets right="40.0" />
+         </VBox.margin>
+      </ButtonBar>
+      <ButtonBar buttonMinWidth="100.0" prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#goHomeAction" text="Revenir à l'Accueil" />
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#closeButtonAction" text="Quitter" />
+        </buttons>
+         <VBox.margin>
+            <Insets right="40.0" />
+         </VBox.margin>
+      </ButtonBar>
+   </children>
+</VBox>

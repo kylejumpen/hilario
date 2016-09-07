@@ -9,31 +9,31 @@ public class DAOFactory {
 
 	protected static final Connection conn = ConnectParameter.getInstance();
 	
-	public DAO getBillDAO(){
+	public DAO<?> getBillDAO(){
 		return new BillDAO(conn);
 	}
 	
-	public DAO getBulkDAO(){
+	public DAO<?> getBulkDAO(){
 		return new BulkDAO(conn);
 	}
 	
-	public DAO getEmployeeDAO(){
+	public DAO<?> getEmployeeDAO(){
 		return new EmployeeDAO(conn);
 	}
 	
-	public DAO getOrderDAO(){
+	public DAO<?> getOrderDAO(){
 		return new OrderDAO(conn);
 	}
 	
-	public DAO getPersonDAO(){
+	public DAO<?> getPersonDAO(){
 		return new PersonDAO(conn);
 	}
 	
-	public DAO getPlaceDAO(){
+	public DAO<?> getPlaceDAO(){
 		return new PlaceDAO(conn);
 	}
 	
-	public DAO getShoeDAO(){
+	public DAO<?> getShoeDAO(){
 		return new ShoeDAO(conn);
 	}
 }

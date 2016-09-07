@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<fx:root maxHeight="300.0" maxWidth="400.0" minHeight="300.0" minWidth="400.0" prefHeight="300.0" prefWidth="400.0" type="VBox" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+<VBox fx:id="ConsultStock" maxHeight="300.0" maxWidth="400.0" minHeight="300.0" minWidth="400.0" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.stock.ConsultStockController">
    <children>
       <StackPane maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="200.0">
          <VBox.margin>
@@ -23,8 +22,8 @@
       </StackPane>
       <TreeTableView prefHeight="300.0" prefWidth="200.0">
         <columns>
-          <TreeTableColumn prefWidth="215.0" text="C1" />
-          <TreeTableColumn prefWidth="154.0" text="C2" />
+          <TreeTableColumn prefWidth="215.0" text="Référence" />
+          <TreeTableColumn prefWidth="154.0" text="Quantité" />
         </columns>
          <VBox.margin>
             <Insets bottom="5.0" left="15.0" right="15.0" />
@@ -35,8 +34,8 @@
             <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
          </VBox.margin>
          <children>
-            <Button mnemonicParsing="false" text="Quitter" StackPane.alignment="CENTER_RIGHT" />
+            <Button mnemonicParsing="false" text="Retour au menu" onAction="#goStockAction" StackPane.alignment="CENTER_RIGHT" />
          </children>
       </StackPane>
    </children>
-</fx:root>
+</VBox>

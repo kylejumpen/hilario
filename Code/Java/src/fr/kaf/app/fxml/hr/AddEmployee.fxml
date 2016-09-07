@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox alignment="CENTER" maxHeight="400.0" maxWidth="400.0" minHeight="300.0" minWidth="300.0" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="AddEmployee" alignment="CENTER" maxHeight="400.0" maxWidth="400.0" minHeight="300.0" minWidth="300.0" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.hr.AddEmployeeController">
    <children>
       <StackPane maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="200.0">
          <children>

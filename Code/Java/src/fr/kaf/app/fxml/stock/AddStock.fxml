@@ -7,10 +7,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.text.Font?>
 
-
-<fx:root maxHeight="350.0" maxWidth="300.0" minHeight="350.0" minWidth="300.0" prefHeight="350.0" prefWidth="300.0" type="VBox" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+<VBox fx:id="AddStock" maxHeight="350.0" maxWidth="300.0" minHeight="350.0" minWidth="300.0" prefHeight="350.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.stock.AddStockController">
    <children>
       <StackPane prefHeight="50.0" prefWidth="200.0">
          <VBox.margin>
@@ -48,8 +48,11 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <RadioButton mnemonicParsing="false" text="En gros" StackPane.alignment="CENTER" />
-            <RadioButton mnemonicParsing="false" text="à l'Unité" StackPane.alignment="CENTER_RIGHT" />
+            <fx:define>
+            	<ToggleGroup fx:id="typeStockRadio" />
+            </fx:define>
+            <RadioButton mnemonicParsing="false" toggleGroup="$typeStockRadio" text="En gros" selected="true" StackPane.alignment="CENTER" />
+            <RadioButton mnemonicParsing="false" toggleGroup="$typeStockRadio" text="à l'Unité" StackPane.alignment="CENTER_RIGHT" />
          </children>
       </StackPane>
       <StackPane prefHeight="50.0" prefWidth="200.0">
@@ -92,8 +95,8 @@
          </VBox.margin>
          <children>
             <Button disable="true" mnemonicParsing="false" text="Ajouter" StackPane.alignment="CENTER_RIGHT" />
-            <Button mnemonicParsing="false" text="Revenir à l'accueil" StackPane.alignment="CENTER_LEFT" />
+            <Button mnemonicParsing="false" onAction="#goStockAction" text="Revenir au menu" StackPane.alignment="CENTER_LEFT" />
          </children>
       </StackPane>
    </children>
-</fx:root>
+</VBox>

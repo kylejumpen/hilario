@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="300.0" maxWidth="300.0" minHeight="300.0" minWidth="300.0" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="Unit" maxHeight="275.0" maxWidth="300.0" minHeight="275.0" minWidth="300.0" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.command.UnitController">
    <children>
       <StackPane maxHeight="35.0" minHeight="35.0" prefHeight="35.0">
          <children>
@@ -25,7 +25,7 @@
             </ComboBox>
          </children>
          <VBox.margin>
-            <Insets bottom="10.0" top="50.0" />
+            <Insets bottom="10.0" top="30.0" />
          </VBox.margin>
       </StackPane>
       <StackPane maxHeight="35.0" minHeight="35.0" prefHeight="35.0">
@@ -35,7 +35,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <TextField maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" StackPane.alignment="CENTER_RIGHT">
+            <TextField fx:id="quantityFld" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin></TextField>
@@ -51,7 +51,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <TextField maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" StackPane.alignment="CENTER_RIGHT">
+            <TextField fx:id="priceFld" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin></TextField>
@@ -67,7 +67,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <Label alignment="CENTER" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" text="Prix" StackPane.alignment="CENTER_RIGHT">
+            <Label fx:id="estimationLbl" alignment="CENTER" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" text="Prix" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin></Label>
@@ -78,7 +78,8 @@
       </StackPane>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
-            <Button cancelButton="true" mnemonicParsing="false" text="Annuler" />
+            <Button mnemonicParsing="false" onAction="#goCommandAction" text="Commande" />
+            <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#cancelButtonAction" text="Remise à Zéro" />
             <Button mnemonicParsing="false" text="Confirmer" />
         </buttons>
          <padding>

@@ -1,0 +1,5 @@
+
+*Notion de vente rattacher à la notion de commandes
+*Après deux mois détails gardé sous format txt afin d'éviter de surcharger base
+avec anciens articles => Edition de commandes impossibles => Refléter dans
+l'interface
