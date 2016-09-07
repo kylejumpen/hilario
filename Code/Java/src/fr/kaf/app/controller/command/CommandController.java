@@ -3,46 +3,32 @@ package fr.kaf.app.controller.command;
 
 import java.io.IOException;
 
+import fr.kaf.app.controller.DefaultController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class CommandController {
+public class CommandController extends DefaultController {
 
 	@FXML
 	VBox Command;
 	
 	public void goHomeAction(ActionEvent e) throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("/fr/kaf/app/fxml/Home.fxml"));
-		Stage stage = (Stage) Command.getScene().getWindow();
-		stage.setScene(new Scene(root));
-		stage.sizeToScene();
+		goSmwhereAction((Stage) Command.getScene().getWindow(),"/fr/kaf/app/fxml/Home.fxml");	
 	}
 	
 	public void goUnitAction(ActionEvent e) throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("/fr/kaf/app/fxml/command/Unit.fxml"));
-		Stage stage = (Stage) Command.getScene().getWindow();
-		stage.setScene(new Scene(root));
-		stage.sizeToScene();	
+		goSmwhereAction((Stage) Command.getScene().getWindow(),"/fr/kaf/app/fxml/command/Unit.fxml");	
 	}
 	
 	public void goBulkAction(ActionEvent e) throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("/fr/kaf/app/fxml/command/Bulk.fxml"));
-		Stage stage = (Stage) Command.getScene().getWindow();
-		stage.hide();
-		stage.setScene(new Scene(root));
-		stage.show();
-		stage.sizeToScene();		
+		goSmwhereAction((Stage) Command.getScene().getWindow(),"/fr/kaf/app/fxml/command/Bulk.fxml");		
 	}
 	
 	
 	public void closeButtonAction(){
-		Stage stage = (Stage) Command.getScene().getWindow();
-		stage.close();
+		super.closeButtonAction((Stage) Command.getScene().getWindow());
 	}
 	
 	

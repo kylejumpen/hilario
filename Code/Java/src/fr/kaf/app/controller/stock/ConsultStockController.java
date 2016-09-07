@@ -2,23 +2,18 @@ package fr.kaf.app.controller.stock;
 
 import java.io.IOException;
 
+import fr.kaf.app.controller.DefaultController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class ConsultStockController {
+public class ConsultStockController extends DefaultController {
 
 	@FXML
 	VBox ConsultStock;
 	
 	public void goStockAction(ActionEvent e) throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("/fr/kaf/app/fxml/stock/Stock.fxml"));
-		Stage stage = (Stage) ConsultStock.getScene().getWindow();
-		stage.setScene(new Scene(root));
-		stage.sizeToScene();
+		goSmwhereAction((Stage) ConsultStock.getScene().getWindow(),"/fr/kaf/app/fxml/stock/Stock.fxml");	
 	}
 }

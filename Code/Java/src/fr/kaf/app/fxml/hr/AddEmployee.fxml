@@ -84,7 +84,7 @@
         <buttons>
           <Button mnemonicParsing="false" text="Ajouter" />
             <Button mnemonicParsing="false" text="Remise à zéro" />
-            <Button alignment="CENTER" mnemonicParsing="false" text="Quitter" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goHRAction" text="Ressources Humaines" />
         </buttons>
          <VBox.margin>
             <Insets right="15.0" />

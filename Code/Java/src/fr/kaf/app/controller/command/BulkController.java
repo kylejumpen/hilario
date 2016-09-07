@@ -2,6 +2,7 @@ package fr.kaf.app.controller.command;
 
 import java.io.IOException;
 
+import fr.kaf.app.controller.DefaultController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ import javafx.scene.control.TreeTableView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BulkController {
+public class BulkController extends DefaultController {
 
 	@FXML
 	VBox Bulk;
@@ -33,10 +34,7 @@ public class BulkController {
 	
 
 	public void goCommandAction(ActionEvent e) throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("/fr/kaf/app/fxml/command/Command.fxml"));
-		Stage stage = (Stage) Bulk.getScene().getWindow();
-		stage.setScene(new Scene(root));
-		stage.sizeToScene();
+		goSmwhereAction((Stage) Bulk.getScene().getWindow(),"/fr/kaf/app/fxml/command/Command.fxml");	
 	}
 	
 	

@@ -19,6 +19,7 @@
       </ButtonBar>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
+        <Button mnemonicParsing="false" onAction="#goHomeAction" text="Revenir à l'accueil" />
           <Button mnemonicParsing="false" onAction="#closeButtonAction" text="Quitter" />
         </buttons>
          <VBox.margin>

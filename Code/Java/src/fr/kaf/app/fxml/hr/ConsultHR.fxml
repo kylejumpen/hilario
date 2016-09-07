@@ -143,8 +143,8 @@
 		</HBox>
 		<ButtonBar prefHeight="40.0" prefWidth="400.0">
 			<buttons>
-				<Button mnemonicParsing="false" onAction="#goHomeAction"
-					text="Revenir à l'Accueil" />
+				<Button mnemonicParsing="false" onAction="#goHRAction"
+					text="Rssources Humaines" />
 			</buttons>
 			<VBox.margin>
 				<Insets right="15.0" />

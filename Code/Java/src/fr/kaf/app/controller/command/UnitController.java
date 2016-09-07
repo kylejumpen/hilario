@@ -2,18 +2,16 @@ package fr.kaf.app.controller.command;
 
 import java.io.IOException;
 
+import fr.kaf.app.controller.DefaultController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class UnitController {
+public class UnitController extends DefaultController {
 
 	@FXML
 	VBox Unit;
@@ -31,13 +29,8 @@ public class UnitController {
 	Label estimationLbl;
 	
 	public void goCommandAction(ActionEvent e) throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("/fr/kaf/app/fxml/command/Command.fxml"));
-		Stage stage = (Stage) Unit.getScene().getWindow();
-		stage.setScene(new Scene(root));
-		stage.sizeToScene();
+		goSmwhereAction((Stage) Unit.getScene().getWindow(),"/fr/kaf/app/fxml/command/Command.fxml");	
 	}
-	
-	
 	
 	public void cancelButtonAction(){
 		quantityFld.setText("");
