@@ -1,11 +1,14 @@
 package fr.kaf.dao.implement;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 import fr.kaf.bean.Bulk;
 import fr.kaf.bean.Shoe;
 import fr.kaf.dao.DAO;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
 
 public class BulkDAO extends DAO<Bulk> {
 
@@ -57,13 +60,24 @@ public class BulkDAO extends DAO<Bulk> {
 		return updateQuery.execute();
 	}
 	
-	public SimpleObjectProperty<Bulk> find (int idBulk) throws SQLException {
+	public SimpleObjectProperty<Bulk> find (Bulk bulk) throws SQLException {
 		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * from achat WHERE identifiant= ?;");
-		retrieveQuery.setInt(1, idBulk);
+		retrieveQuery.setInt(1, bulk.getId());
 		ResultSet result = retrieveQuery.executeQuery();
 		if(result.first())
-			return new SimpleObjectProperty<Bulk>(new Bulk(idBulk,result.getDate(2),result.getInt(3),result.getInt(4)));
+			return new SimpleObjectProperty<Bulk>(new Bulk(bulk.getId(),result.getDate(2),result.getInt(3),result.getInt(4)));
 		else return null;
 	}
+
+	@Override
+	public SimpleListProperty<Bulk> findAll() throws SQLException {
+		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * from achat;");
+		ResultSet results = retrieveQuery.executeQuery();
+		ArrayList<Bulk> bulks = new ArrayList<>(); 
+		while(results.next())
+			bulks.add(new Bulk(results.getInt(1),results.getDate(2),results.getInt(3),results.getInt(4)));
+		return new SimpleListProperty<Bulk>(FXCollections.observableArrayList(bulks));
+	}
+	
 
 }

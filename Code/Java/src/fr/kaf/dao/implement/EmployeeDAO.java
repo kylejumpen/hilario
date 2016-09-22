@@ -58,9 +58,9 @@ public class EmployeeDAO extends DAO<Employee> {
 		return updateQuery.execute();
 	}
 	
-	public SimpleObjectProperty<Employee> find(int id) throws SQLException{
+	public SimpleObjectProperty<Employee> find(Employee emp) throws SQLException{
 		PreparedStatement retrieveQuery = this.connect.prepareStatement("Select identifiant,nom,prenom,mot_passe,droits,salaire from personne Natural JOIN employee WHERE identifiant= ?;");
-		retrieveQuery.setInt(1, id);
+		retrieveQuery.setInt(1, emp.getId());
 		ResultSet result = retrieveQuery.executeQuery();
 		if(result.first())
 			return new SimpleObjectProperty<Employee>(new Employee(result.getInt(1),result.getString(2),result.getString(3),result.getString(4),result.getString(5).charAt(0),result.getInt(6)));

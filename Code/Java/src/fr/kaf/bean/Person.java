@@ -33,7 +33,7 @@ public class Person {
 		return id.get();
 	}
 	
-	protected void setId(int id) {
+	public void setId(int id) {
 		this.id.set(id);
 	}
 	

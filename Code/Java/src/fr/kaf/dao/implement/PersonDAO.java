@@ -40,12 +40,12 @@ public class PersonDAO extends DAO<Person>{
 		return updateQuery.execute();
 	}
 	
-	public SimpleObjectProperty<Person> find(int id) throws SQLException{
+	public SimpleObjectProperty<Person> find(Person pers) throws SQLException{
 		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT nom,prenom,mot_passe FROM personne WHERE identifiant= ?;");
-		retrieveQuery.setInt(1, id);
+		retrieveQuery.setInt(1, pers.getId());
 		ResultSet result = retrieveQuery.executeQuery();
 		if(result.first())
-			return new SimpleObjectProperty<Person>(new Person(id,result.getString(1),result.getString(2),result.getString(3)));
+			return new SimpleObjectProperty<Person>(new Person(pers.getId(),result.getString(1),result.getString(2),result.getString(3)));
 		return null;
 	}
 	

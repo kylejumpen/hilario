@@ -25,6 +25,10 @@ public class StockController extends DefaultController {
 		goSmwhereAction((Stage) Stock.getScene().getWindow(),"/fr/kaf/app/fxml/stock/AddStock.fxml");
 	}
 	
+	public void goAddPlaceAction(ActionEvent e) throws IOException{
+		goSmwhereAction((Stage) Stock.getScene().getWindow(),"/fr/kaf/app/fxml/stock/AddPlace.fxml");
+	}
+	
 	public void closeButtonAction(){
 		super.closeButtonAction((Stage) Stock.getScene().getWindow());
 	}

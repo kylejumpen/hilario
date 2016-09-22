@@ -12,7 +12,7 @@
         <buttons>
             <Button mnemonicParsing="false" onAction="#goConsultStockAction" text="Consulter les stock" />
             <Button mnemonicParsing="false" onAction="#goAddStockAction" text="Ajouter du stock" />
-            <Button mnemonicParsing="false" disable="true" text="Ajouter un emplacement" />
+            <Button mnemonicParsing="false" onAction="#goAddPlaceAction" text="Ajouter un emplacement" />
         </buttons>
          <VBox.margin>
             <Insets right="40.0" />

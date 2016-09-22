@@ -43,12 +43,12 @@ public class OrderDAO extends DAO<Order> {
 		return updateQuery.execute();
 	}
 	
-	public SimpleObjectProperty<Order> find(int idOrder) throws SQLException{
+	public SimpleObjectProperty<Order> find(Order ord) throws SQLException{
 		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * FROM commande WHERE identifiant = ?;");
-		retrieveQuery.setInt(1, idOrder);
+		retrieveQuery.setInt(1, ord.getId());
 		ResultSet result = retrieveQuery.executeQuery();
 		if(result.first())
-			return new SimpleObjectProperty<Order>(new Order(idOrder,result.getDate(2),result.getInt(3),result.getInt(4)));
+			return new SimpleObjectProperty<Order>(new Order(ord.getId(),result.getDate(2),result.getInt(3),result.getInt(4)));
 		return null;
 	}
 

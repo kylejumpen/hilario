@@ -75,5 +75,17 @@ public class ShoeDAO extends DAO<Shoe>{
 	
 		return new SimpleListProperty<Shoe>(FXCollections.observableArrayList(shoes));
 	}
+
+	@Override
+	public SimpleObjectProperty<Shoe> find(Shoe obj) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SimpleListProperty<Shoe> findAll() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

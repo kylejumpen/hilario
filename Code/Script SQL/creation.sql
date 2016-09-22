@@ -1,4 +1,5 @@
--- CREATE DATABASE hilario IF NOT EXISTS
+CREATE DATABASE hilario IF NOT EXISTS
+
 
 CREATE TABLE IF NOT EXISTS  personne(
   identifiant int(11) NOT NULL AUTO_INCREMENT,
@@ -9,6 +10,7 @@ CREATE TABLE IF NOT EXISTS  personne(
   PRIMARY KEY (identifiant)
 ) ENGINE=InnoDB CHARSET=utf8;
 
+
 CREATE TABLE IF NOT EXISTS  employee(
   identifiant int(11) NOT NULL,
   droits varchar(1) DEFAULT NULL,
@@ -16,6 +18,7 @@ CREATE TABLE IF NOT EXISTS  employee(
   PRIMARY KEY(identifiant),
   FOREIGN KEY(identifiant) REFERENCES personne(identifiant)
 ) ENGINE=InnoDB CHARSET=utf8;
+
 
 CREATE TABLE IF NOT EXISTS  commande(
   identifiant int(11) NOT NULL AUTO_INCREMENT,
@@ -25,6 +28,7 @@ CREATE TABLE IF NOT EXISTS  commande(
   PRIMARY KEY (identifiant),
   FOREIGN KEY (identifiant_vendeur) REFERENCES personne(identifiant)
 ) ENGINE=InnoDB CHARSET=utf8;
+
 
 CREATE TABLE  IF NOT EXISTS  achat(
   identifiant int(11) NOT NULL AUTO_INCREMENT,
@@ -36,11 +40,13 @@ CREATE TABLE  IF NOT EXISTS  achat(
   FOREIGN KEY (identifiant_fournisseur) REFERENCES personne(identifiant)
 ) ENGINE=InnoDB CHARSET=utf8;
 
+
 CREATE TABLE IF NOT EXISTS local(
   nom VARCHAR(50) NOT NULL,
   defaut boolean NOT NULL,
   PRIMARY KEY (nom)
 ) ENGINE=InnoDB CHARSET=utf8;
+
 
 CREATE TABLE IF NOT EXISTS chaussure(
   identifiant int(11) NOT NULL AUTO_INCREMENT,
@@ -54,6 +60,7 @@ CREATE TABLE IF NOT EXISTS chaussure(
   FOREIGN KEY (identifiant_commande) REFERENCES commande(identifiant),
   FOREIGN KEY (identifiant_achatfrn) REFERENCES achat(identifiant)
 ) ENGINE=InnoDB CHARSET=utf8;
+
 
 CREATE TABLE IF NOT EXISTS factures(
   identifiant int(11) NOT NULL AUTO_INCREMENT,
