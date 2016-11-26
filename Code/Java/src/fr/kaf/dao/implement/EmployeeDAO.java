@@ -19,12 +19,14 @@ public class EmployeeDAO extends DAO<Employee> {
 	@Override
 	public boolean create(Employee mate) throws SQLException {
 		PreparedStatement createQuery = this.connect.prepareStatement("INSERT into personne(nom,prenom,mot_passe,type) values(?,?,?,false);");
-		createQuery.setString(1, mate.getFirstName());
-		createQuery.setString(2, mate.getLastName());
+		createQuery.setString(1, mate.getLastName());
+		createQuery.setString(2, mate.getFirstName());
 		createQuery.setString(3, mate.getPassword());
 		createQuery.execute();
 		createQuery = this.connect.prepareStatement("SELECT identifiant from personne WHERE nom= ? ORDER BY identifiant DESC LIMIT 1;");
+		createQuery.setString(1, mate.getLastName());
 		ResultSet idsql = createQuery.executeQuery();
+		idsql.first();
 		int idEmp = idsql.getInt(1);
 		createQuery = this.connect.prepareStatement("INSERT into employee(identifiant,droits,salaire) values(?,?,?);");
 		createQuery.setInt(1, idEmp);

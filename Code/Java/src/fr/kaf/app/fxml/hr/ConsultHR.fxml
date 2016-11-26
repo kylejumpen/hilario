@@ -5,36 +5,29 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="ConsultHR" maxHeight="600.0" maxWidth="600.0"
-	minHeight="500.0" minWidth="500.0" prefHeight="550.0" prefWidth="550.0"
-	xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="fr.kaf.app.controller.hr.ConsultHRController">
+<VBox fx:id="ConsultHR" maxHeight="600.0" maxWidth="600.0" minHeight="500.0" minWidth="500.0" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.hr.ConsultHRController">
 	<children>
 		<HBox maxHeight="450.0" minHeight="450.0" prefHeight="450.0">
 			<children>
-				<TreeTableView prefHeight="426.0" prefWidth="288.0">
-					<columns>
-						<TreeTableColumn prefWidth="144.0" text="Nom" />
-						<TreeTableColumn prefWidth="143.0" text="Prénom" />
-					</columns>
-					<HBox.margin>
-						<Insets left="15.0" />
-					</HBox.margin>
-				</TreeTableView>
+            <TableView fx:id="table" prefHeight="426.0" prefWidth="288.0">
+               <columns>
+                  <TableColumn fx:id="lastNameCol" prefWidth="131.0" text="Nom" />
+                  <TableColumn fx:id="firstNameCol" prefWidth="154.0" text="Prénom" />
+               </columns>
+              </TableView>
 				<VBox prefHeight="450.0" prefWidth="266.0">
 					<children>
 						<StackPane prefHeight="30.0" prefWidth="200.0">
 							<children>
-								<Label alignment="CENTER" contentDisplay="CENTER" text="Informations"
-									textAlignment="CENTER" underline="true" StackPane.alignment="CENTER">
+								<Label alignment="CENTER" contentDisplay="CENTER" text="Informations" textAlignment="CENTER" underline="true" StackPane.alignment="CENTER">
 									<font>
 										<Font name="System Bold" size="20.0" />
 									</font>
@@ -49,15 +42,12 @@
 								<Insets bottom="15.0" />
 							</VBox.margin>
 							<children>
-								<Label maxHeight="35.0" maxWidth="105.0" minHeight="35.0"
-									minWidth="105.0" prefHeight="35.0" prefWidth="105.0" text="Nom :"
-									StackPane.alignment="CENTER_LEFT">
+								<Label maxHeight="35.0" maxWidth="105.0" minHeight="35.0" minWidth="105.0" prefHeight="35.0" prefWidth="105.0" text="Nom :" StackPane.alignment="CENTER_LEFT">
 									<StackPane.margin>
 										<Insets left="15.0" />
 									</StackPane.margin>
 								</Label>
-								<TextField disable="true" editable="false" maxWidth="100.0"
-									minWidth="100.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
+								<TextField fx:id="firstNameFld" disable="true" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
 									<StackPane.margin>
 										<Insets right="15.0" />
 									</StackPane.margin>
@@ -69,15 +59,12 @@
 								<Insets bottom="15.0" />
 							</VBox.margin>
 							<children>
-								<Label maxHeight="35.0" maxWidth="105.0" minHeight="35.0"
-									minWidth="105.0" prefHeight="35.0" prefWidth="105.0" text="Prénom :"
-									StackPane.alignment="CENTER_LEFT">
+								<Label maxHeight="35.0" maxWidth="105.0" minHeight="35.0" minWidth="105.0" prefHeight="35.0" prefWidth="105.0" text="Prénom :" StackPane.alignment="CENTER_LEFT">
 									<StackPane.margin>
 										<Insets left="15.0" />
 									</StackPane.margin>
 								</Label>
-								<TextField disable="true" editable="false" maxWidth="100.0"
-									minWidth="100.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
+								<TextField fx:id="lastNameFld" disable="true" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
 									<StackPane.margin>
 										<Insets right="15.0" />
 									</StackPane.margin>
@@ -89,15 +76,12 @@
 								<Insets bottom="15.0" />
 							</VBox.margin>
 							<children>
-								<Label maxHeight="35.0" maxWidth="105.0" minHeight="35.0"
-									minWidth="105.0" prefHeight="35.0" prefWidth="105.0"
-									text="Date de Naissance :" StackPane.alignment="CENTER_LEFT">
+								<Label maxHeight="35.0" maxWidth="105.0" minHeight="35.0" minWidth="105.0" prefHeight="35.0" prefWidth="105.0" text="Date de Naissance :" StackPane.alignment="CENTER_LEFT">
 									<StackPane.margin>
 										<Insets left="15.0" />
 									</StackPane.margin>
 								</Label>
-								<DatePicker disable="true" editable="false" maxWidth="100.0"
-									minWidth="100.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
+								<DatePicker disable="true" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
 									<StackPane.margin>
 										<Insets right="15.0" />
 									</StackPane.margin>
@@ -109,26 +93,23 @@
 								<Insets bottom="15.0" />
 							</VBox.margin>
 							<children>
-								<Label maxHeight="35.0" maxWidth="105.0" minHeight="35.0"
-									minWidth="105.0" prefHeight="35.0" prefWidth="105.0"
-									text="Salaire mensuel :" StackPane.alignment="CENTER_LEFT">
+								<Label maxHeight="35.0" maxWidth="105.0" minHeight="35.0" minWidth="105.0" prefHeight="35.0" prefWidth="105.0" text="Salaire mensuel :" StackPane.alignment="CENTER_LEFT">
 									<StackPane.margin>
 										<Insets left="15.0" />
 									</StackPane.margin>
 								</Label>
-								<TextField disable="true" editable="false" maxWidth="100.0"
-									minWidth="100.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
+								<TextField fx:id="salaryFld" disable="true" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
 									<StackPane.margin>
 										<Insets right="15.0" />
 									</StackPane.margin>
 								</TextField>
 							</children>
 						</StackPane>
-						<ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0"
-							prefWidth="200.0">
+						<ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
 							<buttons>
-								<Button alignment="CENTER" mnemonicParsing="false" text="Supprimer" />
-								<Button alignment="CENTER" mnemonicParsing="false" text="Modifier" />
+								<Button alignment="CENTER" mnemonicParsing="false" onAction="#removeEmployeeDetails" text="Supprimer" />
+                        		<Button mnemonicParsing="false" text="Enregistrer" onAction="#saveEmployeeDetails" />
+								<Button alignment="CENTER" mnemonicParsing="false" onAction="#modifyEmployeeDetails" text="Modifier" />
 							</buttons>
 							<VBox.margin>
 								<Insets left="15.0" />
@@ -143,8 +124,7 @@
 		</HBox>
 		<ButtonBar prefHeight="40.0" prefWidth="400.0">
 			<buttons>
-				<Button mnemonicParsing="false" onAction="#goHRAction"
-					text="Rssources Humaines" />
+				<Button mnemonicParsing="false" onAction="#goHRAction" text="Rssources Humaines" />
 			</buttons>
 			<VBox.margin>
 				<Insets right="15.0" />

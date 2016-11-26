@@ -15,6 +15,7 @@ public class Main extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {
+			System.out.println("Ou es ton SQL Niama");
 			e.printStackTrace();
 		}
 	}

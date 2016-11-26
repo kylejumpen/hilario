@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox fx:id="AddEmployee" alignment="CENTER" maxHeight="400.0" maxWidth="400.0" minHeight="300.0" minWidth="300.0" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.hr.AddEmployeeController">
    <children>
       <StackPane maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="200.0">
@@ -19,7 +18,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <TextField maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" StackPane.alignment="CENTER_RIGHT">
+            <TextField fx:id="lastNameTxt" maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin>
@@ -36,7 +35,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <TextField maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" StackPane.alignment="CENTER_RIGHT">
+            <TextField fx:id="firstNameTxt" maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin>
@@ -53,7 +52,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <DatePicker maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" StackPane.alignment="CENTER_RIGHT">
+            <DatePicker fx:id="birthDateTxt" maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin>
@@ -70,7 +69,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <TextField maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" StackPane.alignment="CENTER_RIGHT">
+            <TextField fx:id="salaryTxt" maxHeight="25.0" maxWidth="125.0" minHeight="25.0" minWidth="125.0" prefHeight="25.0" prefWidth="125.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin>
@@ -80,9 +79,14 @@
             <Insets bottom="15.0" />
          </VBox.margin>
       </StackPane>
+      <StackPane minHeight="-Infinity" prefHeight="25.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="feedBackLbl" />
+         </children>
+      </StackPane>
       <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button mnemonicParsing="false" text="Ajouter" />
+          <Button mnemonicParsing="false" text="Ajouter" onAction="#saveEmployee" />
             <Button mnemonicParsing="false" text="Remise à zéro" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#goHRAction" text="Ressources Humaines" />
         </buttons>

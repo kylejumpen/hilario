@@ -41,4 +41,8 @@ public class Employee extends Person{
 		this.droit.set(droit);
 	}
 	
+	@Override
+	public String toString(){
+		return this.getFirstName() + " " + this.getLastName() +  " " + this.getPassword() + " " + this.getDroit();
+	}
 }

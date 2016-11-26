@@ -33,7 +33,7 @@ public class AddPlaceController extends DefaultController{
 	DAO<Place> dao;
 	
 	public void initialize(){
-		DAOFactory dFact = new DAOFactory();
+		super.initialize();
 		dao = (DAO<Place>) dFact.getPlaceDAO();
 	}
 	

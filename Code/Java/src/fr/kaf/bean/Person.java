@@ -17,14 +17,14 @@ public class Person {
 	}
 	
 	public Person(int id, String firstName, String lastName, String password){
-		this. id = new SimpleIntegerProperty(id);
-		this. firstName = new SimpleStringProperty(firstName);
+		this.id = new SimpleIntegerProperty(id);
+		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
 		this.password = new SimpleStringProperty(password);
 	}
 	
 	public Person(String firstName, String lastName, String password){
-		this. firstName = new SimpleStringProperty(firstName);
+		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
 		this.password = new SimpleStringProperty(password);
 	}
@@ -45,12 +45,20 @@ public class Person {
 		this.firstName.set(firstName);
 	}
 	
+	public StringProperty firstNameProperty(){
+		return this.firstName;
+	}
+	
 	public String getLastName() {
 		return this.lastName.get();
 	}
 	
 	public void setLastName(String lastName) {
 		this.lastName.set(lastName);
+	}
+	
+	public StringProperty lastNameProperty(){
+		return this.lastName;
 	}
 
 	public String getPassword() {
