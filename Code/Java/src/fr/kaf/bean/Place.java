@@ -33,5 +33,8 @@ public class Place {
 		this.boutique.set(boutique);
 	}
 	
-	
+	@Override
+	public String toString(){
+		return "[ "+ this.getName()+ ";boutique : " + this.getBoutique()+" ]";
+	}
 }

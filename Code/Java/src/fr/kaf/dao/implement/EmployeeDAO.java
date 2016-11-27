@@ -13,7 +13,6 @@ public class EmployeeDAO extends DAO<Employee> {
 
 	public EmployeeDAO(Connection conn) {
 		super(conn);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

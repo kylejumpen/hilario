@@ -18,7 +18,7 @@ public class Bulk {
 		this.date = new SimpleObjectProperty<>();
 		this.buyer = new SimpleObjectProperty<>();
 		this.provider = new SimpleObjectProperty<>();
-		this.shoes = new SimpleListProperty<>();
+		this.shoes = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<Shoe>()));
 	}
 	
 	public Bulk(int id, Date date, int idBuyer, int idProvider){
@@ -28,7 +28,7 @@ public class Bulk {
 		this.getBuyer().setId(idBuyer);
 		this.provider = new SimpleObjectProperty<>();
 		this.getProvider().setId(idProvider);
-		this.shoes = new SimpleListProperty<>();
+		this.shoes = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<Shoe>()));
 	}
 	
 	public int getId() {
@@ -61,7 +61,7 @@ public class Bulk {
 	}
 	
 	public void setProvider(Person provider) {
-		this.buyer.set(provider);
+		this.provider.set(provider);
 	}
 	
 	public List<Shoe> getShoes() {
@@ -72,4 +72,15 @@ public class Bulk {
 		this.shoes.set(FXCollections.observableList(shoes));
 	}
 	
+	public ListProperty<Shoe> shoesProperty(){
+		return this.shoes;
+	}
+	
+	public void multipleShoes(String reference, int qty, float price, Place place ){
+		ArrayList<Shoe> shoe = new ArrayList<Shoe>();
+		for(int i = 0; i < qty;i++){
+			Shoe temp = new Shoe(reference,price,place);
+			this.shoes.add(temp);
+		}
+	}
 }

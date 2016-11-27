@@ -52,12 +52,12 @@ public class AddPlaceController extends DefaultController{
 				feedBackLbl.setText("L'emplacement n'a pu être ajouté");
 			else{
 				feedBackLbl.setTextFill(Color.GREEN);
-				feedBackLbl.setText("Emplacement ajouté");
+				feedBackLbl.setText("Emplacement "+ namePlace.getText() +" ajouté");
 			}
 			
 		} catch (SQLException ex) {
 			feedBackLbl.setText("Erreur de connexion à la base");
-			// TODO Auto-generated catch block
+			// TODO Mettre Popup ou autre pour erreur base
 			ex.printStackTrace();
 		}
 	}
