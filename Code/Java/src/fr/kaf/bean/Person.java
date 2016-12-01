@@ -11,6 +11,7 @@ public class Person {
 	
 	public Person(){
 	this.id = new SimpleIntegerProperty();
+	this.setId(24);
 	this.firstName = new SimpleStringProperty();
 	this.lastName = new SimpleStringProperty();	
 	this.password = new SimpleStringProperty();

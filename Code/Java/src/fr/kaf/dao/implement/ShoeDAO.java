@@ -2,7 +2,9 @@ package fr.kaf.dao.implement;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import fr.kaf.bean.Place;
 import fr.kaf.bean.Shoe;
 import fr.kaf.dao.DAO;
 import javafx.beans.property.*;
@@ -76,6 +78,17 @@ public class ShoeDAO extends DAO<Shoe>{
 		return new SimpleListProperty<Shoe>(FXCollections.observableArrayList(shoes));
 	}
 
+	
+	public HashMap<String,Integer> findRefAndQtyByPlace(Place place) throws SQLException{
+		HashMap<String,Integer> temp = new HashMap<>();
+		PreparedStatement findQuery = this.connect.prepareStatement("SELECT reference,COUNT(*) FROM chaussure WHERE (identifiant_commande IS NULL AND nom_local = ?)GROUP BY reference,nom_local ");
+		findQuery.setString(1, place.getName());
+		ResultSet results = findQuery.executeQuery();
+		while(results.next())
+			temp.put(results.getString(1), results.getInt(2));
+		return temp;
+	}
+	
 	@Override
 	public SimpleObjectProperty<Shoe> find(Shoe obj) throws SQLException {
 		// TODO Auto-generated method stub
