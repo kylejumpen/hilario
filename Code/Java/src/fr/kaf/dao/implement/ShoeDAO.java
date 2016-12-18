@@ -78,10 +78,10 @@ public class ShoeDAO extends DAO<Shoe>{
 		return new SimpleListProperty<Shoe>(FXCollections.observableArrayList(shoes));
 	}
 
-	
+	//TODO Remonter la somme pour avoir une idée du totale de marchandise à écouler, moyenne du prix et ecartype pour marchandage
 	public HashMap<String,Integer> findRefAndQtyByPlace(Place place) throws SQLException{
 		HashMap<String,Integer> temp = new HashMap<>();
-		PreparedStatement findQuery = this.connect.prepareStatement("SELECT reference,COUNT(*) FROM chaussure WHERE (identifiant_commande IS NULL AND nom_local = ?)GROUP BY reference,nom_local ");
+		PreparedStatement findQuery = this.connect.prepareStatement("SELECT reference,COUNT(*),AVG(prix_unitaire),STD(prix_unitaire) FROM chaussure WHERE (identifiant_commande IS NULL AND nom_local = ?)GROUP BY reference,nom_local ");
 		findQuery.setString(1, place.getName());
 		ResultSet results = findQuery.executeQuery();
 		while(results.next())

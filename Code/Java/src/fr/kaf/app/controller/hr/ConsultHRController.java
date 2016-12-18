@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import fr.kaf.app.controller.DefaultController;
 import fr.kaf.bean.Employee;
 import fr.kaf.dao.DAO;
+import fr.kaf.dao.implement.EmployeeDAO;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -44,17 +45,17 @@ public class ConsultHRController extends DefaultController implements Initializa
 	@FXML
 	TextField salaryFld;
 	
-	DAO<Employee> dao;
+	EmployeeDAO daoEmployee;
 	
 	SimpleListProperty<Employee> employees;
 	
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources){
 		super.initialize();
-		dao = (DAO<Employee>) dFact.getEmployeeDAO();
+		daoEmployee = (EmployeeDAO) dFact.getEmployeeDAO();
 		try {
-			employees = dao.findAll();
+			employees = daoEmployee.findAll();
 			System.out.println(employees.get());
 			if(employees.size() > 0)
 				table.setItems(employees);
@@ -62,7 +63,7 @@ public class ConsultHRController extends DefaultController implements Initializa
 			lastNameCol.setCellValueFactory(new PropertyValueFactory<Employee, String>("lastName"));
 			table.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showEmployeeDetails(newValue));
 		} catch (SQLException e) {
-			// TODO Mettre une popup erreur base de données
+			showException(e);
 			e.printStackTrace();
 		}
 		
@@ -107,7 +108,7 @@ public class ConsultHRController extends DefaultController implements Initializa
 		salaryFld.setEditable(false);
 		temp.setSalary(Integer.parseInt(salaryFld.getText()));
 		try {
-			dao.update(temp);
+			daoEmployee.update(temp);
 		} catch (SQLException e1) {
 			// TODO Mettre un message de feedback
 			e1.printStackTrace();
@@ -116,7 +117,7 @@ public class ConsultHRController extends DefaultController implements Initializa
 	
 	public void removeEmployeeDetails(ActionEvent e){
 		try {
-			dao.delete(table.getSelectionModel().selectedItemProperty().get());
+			daoEmployee.delete(table.getSelectionModel().selectedItemProperty().get());
 			employees.remove(table.getSelectionModel().selectedItemProperty().get());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block

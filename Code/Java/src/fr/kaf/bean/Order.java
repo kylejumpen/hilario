@@ -12,14 +12,27 @@ public class Order {
 	private SimpleObjectProperty<Date> date;
 	private SimpleIntegerProperty realPrice;
 	private SimpleObjectProperty<Person> seller;
-	private SimpleListProperty<Shoe> shoes;
+	private SimpleObjectProperty<Shoe> sampleShoe;
+	private SimpleObjectProperty<HashMap<String,Integer>> resumeInfo;
 	
 	public Order(int id, Date date, int realPrice, int seller){
 		this.id = new SimpleIntegerProperty(id);
 		this.date = new SimpleObjectProperty<>(date);
 		this.realPrice = new SimpleIntegerProperty(realPrice);
-		this.seller = new SimpleObjectProperty<>();
+		this.seller = new SimpleObjectProperty<>(new Person());
 		this.seller.get().setId(seller);
+		this.sampleShoe = new SimpleObjectProperty<>(new Shoe());
+		this.resumeInfo = new SimpleObjectProperty<>(new HashMap<>());
+	}
+	
+	public Order(Date date, int realPrice, int seller,Shoe sampleShoe){
+		this.id = new SimpleIntegerProperty(0);
+		this.date = new SimpleObjectProperty<>(date);
+		this.realPrice = new SimpleIntegerProperty(realPrice);
+		this.seller = new SimpleObjectProperty<>(new Person());
+		this.seller.get().setId(seller);
+		this.sampleShoe = new SimpleObjectProperty<>(sampleShoe);
+		this.resumeInfo = new SimpleObjectProperty<>(new HashMap<>());
 	}
 	
 	public int getId() {
@@ -54,15 +67,20 @@ public class Order {
 		this.seller.set(seller);
 	}
 
-	public List<Shoe> getShoes() {
-		return shoes.get();
+	public SimpleObjectProperty<HashMap<String,Integer>> getResumeInfo() {
+		return resumeInfo;
 	}
 
-	public void setShoes(List<Shoe> shoes) {
-		this.shoes.set(FXCollections.observableList(shoes));
+	public void setResumeInfo(HashMap<String,Integer> resumeInfo) {
+		this.resumeInfo.set(resumeInfo);
 	}
-	
-	
-	
+
+	public SimpleObjectProperty<Shoe> getSampleShoe() {
+		return sampleShoe;
+	}
+
+	public void setSampleShoe(SimpleObjectProperty<Shoe> sampleShoe) {
+		this.sampleShoe = sampleShoe;
+	}
 	
 }

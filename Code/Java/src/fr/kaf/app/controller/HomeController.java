@@ -13,7 +13,7 @@ public class HomeController extends DefaultController {
 	VBox Home;
 	
 	public void goCommandAction(ActionEvent e) throws IOException{
-		goSmwhereAction((Stage)Home.getScene().getWindow(),"/fr/kaf/app/fxml/command/Command.fxml");
+		goSmwhereAction((Stage)Home.getScene().getWindow(),"/fr/kaf/app/fxml/command/Bulk.fxml");
 	}
 	
 	public void goAccountingAction(ActionEvent e) throws IOException{

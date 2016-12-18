@@ -10,6 +10,7 @@ import fr.kaf.app.controller.DefaultController;
 import fr.kaf.bean.Bulk;
 import fr.kaf.bean.Person;
 import fr.kaf.bean.Place;
+import fr.kaf.bean.Shoe;
 import fr.kaf.dao.DAO;
 import fr.kaf.dao.implement.BulkDAO;
 import fr.kaf.dao.implement.PlaceDAO;
@@ -85,7 +86,8 @@ public class AddStockController extends DefaultController implements Initializab
 		Bulk temp = new Bulk();
 		temp.setBuyer(new Person());
 		temp.setProvider(new Person());
-		temp.multipleShoes(referenceTxt.getText(), Integer.parseInt(quantityTxt.getText()), Float.parseFloat(priceTxt.getText()), placesCbx.getSelectionModel().getSelectedItem());
+		temp.setSampleShoe(new Shoe(referenceTxt.getText(), Float.parseFloat(priceTxt.getText()), placesCbx.getSelectionModel().getSelectedItem()));
+		temp.getResumeInfo().getValue().put(referenceTxt.getText(), Integer.parseInt(quantityTxt.getText()));
 		temp.setDate(new Date(new java.util.Date().getTime()));
 		try {
 			daoBulk.create(temp);

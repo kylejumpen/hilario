@@ -70,7 +70,7 @@ public class Shoe {
 	}
 	
 	public void setPlace(Place place) {
-		this.setPlace(place);
+		this.place.set(place);
 	}
 	
 	public Order getOrder() {
@@ -78,7 +78,7 @@ public class Shoe {
 	}
 	
 	public void setOrder(Order order) {
-		this.setOrder(order);
+		this.order.set(order);
 	}
 	
 	public Bulk getBulk() {
@@ -86,6 +86,6 @@ public class Shoe {
 	}
 	
 	public void setBulk(Bulk bulk) {
-		this.setBulk(bulk);
+		this.bulk.set(bulk);
 	}
 }

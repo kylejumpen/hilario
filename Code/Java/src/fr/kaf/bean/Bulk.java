@@ -11,14 +11,16 @@ public class Bulk {
 	private SimpleObjectProperty<Date> date;
 	private SimpleObjectProperty<Person> buyer;
 	private SimpleObjectProperty<Person> provider;
-	private SimpleListProperty<Shoe> shoes;
+	private SimpleObjectProperty<Shoe> sampleShoe;
+	private  SimpleObjectProperty<HashMap<String,Integer>> resumeInfo;
 	
 	public Bulk(){
 		this.id = new SimpleIntegerProperty();
 		this.date = new SimpleObjectProperty<>();
 		this.buyer = new SimpleObjectProperty<>();
 		this.provider = new SimpleObjectProperty<>();
-		this.shoes = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<Shoe>()));
+		this.sampleShoe = new SimpleObjectProperty<>();
+		this.resumeInfo = new SimpleObjectProperty<>(new HashMap<String,Integer>());
 	}
 	
 	public Bulk(int id, Date date, int idBuyer, int idProvider){
@@ -28,7 +30,7 @@ public class Bulk {
 		this.getBuyer().setId(idBuyer);
 		this.provider = new SimpleObjectProperty<>();
 		this.getProvider().setId(idProvider);
-		this.shoes = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<Shoe>()));
+		this.resumeInfo = new SimpleObjectProperty<>(new HashMap<String,Integer>());
 	}
 	
 	public int getId() {
@@ -63,24 +65,20 @@ public class Bulk {
 	public void setProvider(Person provider) {
 		this.provider.set(provider);
 	}
-	
-	public List<Shoe> getShoes() {
-		return shoes.get();
+
+	public SimpleObjectProperty<HashMap<String,Integer>> getResumeInfo() {
+		return resumeInfo;
 	}
 
-	public void setShoes(List<Shoe> shoes) {
-		this.shoes.set(FXCollections.observableList(shoes));
+	public void setResumeInfo(HashMap<String,Integer> resumeInfo) {
+		this.resumeInfo.setValue(resumeInfo);
 	}
-	
-	public ListProperty<Shoe> shoesProperty(){
-		return this.shoes;
+
+	public SimpleObjectProperty<Shoe> getSampleShoe() {
+		return sampleShoe;
 	}
-	
-	public void multipleShoes(String reference, int qty, float price, Place place ){
-		ArrayList<Shoe> shoe = new ArrayList<Shoe>();
-		for(int i = 0; i < qty;i++){
-			Shoe temp = new Shoe(reference,price,place);
-			this.shoes.add(temp);
-		}
+
+	public void setSampleShoe(Shoe sampleShoe) {
+		this.sampleShoe.setValue(sampleShoe);
 	}
 }

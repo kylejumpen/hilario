@@ -5,12 +5,37 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="Unit" maxHeight="275.0" maxWidth="300.0" minHeight="275.0" minWidth="300.0" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.command.UnitController">
+<VBox fx:id="Unit" maxHeight="475.0" maxWidth="400.0" minHeight="475.0" minWidth="400.0" prefHeight="475.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.kaf.app.controller.command.UnitController">
+    <fx:define>
+        <ToggleGroup fx:id="typePriceGrp" />
+    </fx:define>
    <children>
+      <StackPane maxHeight="35.0" minHeight="35.0" prefHeight="35.0">
+         <children>
+            <Label text="Emplacement :" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="15.0" />
+               </StackPane.margin>
+               <padding>
+                  <Insets right="15.0" />
+               </padding>
+            </Label>
+            <ComboBox fx:id="placesCbx" prefWidth="150.0" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="15.0" />
+               </StackPane.margin>
+            </ComboBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="25.0" />
+         </VBox.margin>
+      </StackPane>
       <StackPane maxHeight="35.0" minHeight="35.0" prefHeight="35.0">
          <children>
             <Label alignment="TOP_LEFT" maxHeight="20.0" maxWidth="70.0" minHeight="20.0" minWidth="70.0" prefHeight="20.0" prefWidth="70.0" text="Référence :" StackPane.alignment="CENTER_LEFT">
@@ -18,15 +43,29 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <ComboBox maxHeight="25.0" maxWidth="100.0" minHeight="25.0" minWidth="100.0" prefHeight="25.0" prefWidth="100.0" StackPane.alignment="CENTER_RIGHT">
+            <ComboBox fx:id="referenceCbx" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin>
             </ComboBox>
          </children>
          <VBox.margin>
-            <Insets bottom="10.0" top="30.0" />
+            <Insets bottom="10.0" />
          </VBox.margin>
+      </StackPane>
+      <StackPane maxHeight="30.0" minHeight="30.0" prefHeight="30.0">
+         <children>
+            <Label text="Disponible :" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="15.0" />
+               </StackPane.margin>
+            </Label>
+            <Label fx:id="nbDispLbl" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="15.0" />
+               </StackPane.margin>
+            </Label>
+         </children>
       </StackPane>
       <StackPane maxHeight="35.0" minHeight="35.0" prefHeight="35.0">
          <children>
@@ -35,7 +74,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <TextField fx:id="quantityFld" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" StackPane.alignment="CENTER_RIGHT">
+            <TextField fx:id="quantityFld" maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" prefHeight="25.0" prefWidth="75.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin></TextField>
@@ -51,7 +90,7 @@
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <TextField fx:id="priceFld" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" StackPane.alignment="CENTER_RIGHT">
+            <TextField fx:id="priceFld" maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" prefHeight="25.0" prefWidth="75.0" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin></TextField>
@@ -61,13 +100,38 @@
          </VBox.margin>
       </StackPane>
       <StackPane maxHeight="35.0" minHeight="35.0" prefHeight="35.0">
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+         <children>
+            <Label text="Type de vente" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="15.0" />
+               </StackPane.margin>
+            </Label>
+            <RadioButton mnemonicParsing="false" selected="true" text="En gros" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="100.0" />
+               </StackPane.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="typePriceGrp" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="Unitaire" toggleGroup="$typePriceGrp" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="15.0" />
+               </StackPane.margin>
+            </RadioButton>
+         </children>
+      </StackPane>
+      <StackPane maxHeight="35.0" minHeight="35.0" prefHeight="35.0">
          <children>
             <Label alignment="CENTER" maxHeight="25.0" maxWidth="70.0" minHeight="25.0" minWidth="70.0" prefHeight="25.0" prefWidth="70.0" text="Estimation :" StackPane.alignment="CENTER_LEFT">
                <StackPane.margin>
                   <Insets left="15.0" />
                </StackPane.margin>
             </Label>
-            <Label fx:id="estimationLbl" alignment="CENTER" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" text="Prix" StackPane.alignment="CENTER_RIGHT">
+            <Label fx:id="estimationLbl" alignment="CENTER" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Prix" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="15.0" />
                </StackPane.margin></Label>
@@ -75,6 +139,37 @@
          <VBox.margin>
             <Insets bottom="15.0" />
          </VBox.margin>
+      </StackPane>
+      <StackPane maxHeight="35.0" minHeight="35.0" prefHeight="35.0">
+         <VBox.margin>
+            <Insets bottom="15.0" />
+         </VBox.margin>
+         <children>
+            <Label maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" prefHeight="25.0" prefWidth="75.0" text="Prix attribué :" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="15.0" />
+               </StackPane.margin>
+            </Label>
+            <TextField fx:id="realPriceTxt" maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" prefHeight="25.0" prefWidth="75.0" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="15.0" />
+               </StackPane.margin>
+            </TextField>
+         </children>
+      </StackPane>
+      <StackPane prefHeight="50.0">
+         <children>
+            <Label text="Feedback :" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="15.0" />
+               </StackPane.margin>
+            </Label>
+            <Label fx:id="feedbackLbl" alignment="TOP_LEFT" maxHeight="50.0" maxWidth="150.0" minHeight="50.0" minWidth="150.0" prefHeight="50.0" prefWidth="150.0" StackPane.alignment="CENTER_RIGHT">
+               <StackPane.margin>
+                  <Insets right="15.0" />
+               </StackPane.margin>
+            </Label>
+         </children>
       </StackPane>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>

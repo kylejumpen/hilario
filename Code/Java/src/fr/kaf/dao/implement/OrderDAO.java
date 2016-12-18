@@ -19,12 +19,26 @@ public class OrderDAO extends DAO<Order> {
 	@Override
 	public boolean create(Order order) throws SQLException {
 		PreparedStatement createQuery = this.connect.prepareStatement("INSERT INTO commande(date,prix_negociee,identifiant_vendeur) VALUES(?,?,?);");
-		createQuery.setDate(1, (Date) order.getDate());
+		createQuery.setDate(1, new java.sql.Date(order.getDate().getTime()));
 		createQuery.setInt(2, order.getRealPrice());
-		createQuery.setInt(3, order.getSeller().getId());
-		return createQuery.execute();
+		createQuery.setInt(3, 24); // TODO : mettre un vendeur variable
+		createQuery.execute();
+		PreparedStatement retrieveIdQuery = this.connect.prepareStatement("SELECT identifiant FROM commande ORDER BY identifiant DESC LIMIT 1;");
+		ResultSet result = retrieveIdQuery.executeQuery();
+		result.first();
+		int id = result.getInt(1);
+		order.setId(id);
+		PreparedStatement updateQuery = this.connect.prepareStatement("UPDATE chaussure SET identifiant_commande= ? where (identifiant_commande IS NULL AND reference = ? AND nom_local = ? ) ORDER BY identifiant DESC LIMIT ?;");
+		updateQuery.setInt(1, id);
+		updateQuery.setString(2, order.getSampleShoe().get().getReference());
+		updateQuery.setString(3, order.getSampleShoe().get().getPlace().getName());
+		updateQuery.setInt(4, order.getResumeInfo().get().get(order.getSampleShoe().get().getReference()));
+		System.out.println(updateQuery);
+		updateQuery.execute();
+		return true;
 	}
 
+	//TODO Update les chaussure mettre l'id commande à nul avant de pouvoir delete
 	@Override
 	public boolean delete(Order order) throws SQLException {
 		PreparedStatement deleteQuery = this.connect.prepareStatement("DELETE FROM commande WHERE identifiant= ?;");
@@ -53,7 +67,18 @@ public class OrderDAO extends DAO<Order> {
 	}
 
 	public SimpleListProperty<Order> findAll() throws SQLException{
-		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * FROM commande;");
+		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * FROM commande ORDER BY date DESC, prix_negociee DESC;");
+		ResultSet result = retrieveQuery.executeQuery();
+		ArrayList<Order> orders = new ArrayList<>();
+		while(result.next())
+			orders.add(new Order(result.getInt(1),result.getDate(2),result.getInt(3),result.getInt(4)));
+		
+		return new SimpleListProperty<Order>(FXCollections.observableArrayList(orders));
+	}
+	
+	public SimpleListProperty<Order> findByMonth(int month) throws SQLException{
+		PreparedStatement retrieveQuery = this.connect.prepareStatement("SELECT * FROM commande where MONTH(date) = ? ORDER BY date DESC, prix_negociee DESC;");
+		retrieveQuery.setInt(1, month);
 		ResultSet result = retrieveQuery.executeQuery();
 		ArrayList<Order> orders = new ArrayList<>();
 		while(result.next())

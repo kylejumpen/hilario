@@ -13,6 +13,7 @@ import fr.kaf.bean.Employee;
 import fr.kaf.bean.Place;
 import fr.kaf.bean.Shoe;
 import fr.kaf.dao.DAO;
+import fr.kaf.dao.implement.PlaceDAO;
 import fr.kaf.dao.implement.ShoeDAO;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -52,7 +53,7 @@ public class ConsultStockController extends DefaultController implements Initial
 	
 	Map<String,Integer> inventory;
 	
-	DAO<Place> daoPlaces;
+	PlaceDAO daoPlaces;
 	
 	ShoeDAO daoShoe;
 	
@@ -60,7 +61,7 @@ public class ConsultStockController extends DefaultController implements Initial
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		super.initialize();
-		daoPlaces =  (DAO<Place>) dFact.getPlaceDAO();
+		daoPlaces = (PlaceDAO) dFact.getPlaceDAO();
 		daoShoe =  (ShoeDAO) dFact.getShoeDAO();
 		inventory = new HashMap<>();
 		try {
