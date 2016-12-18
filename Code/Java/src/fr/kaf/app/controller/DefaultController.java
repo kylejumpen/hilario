@@ -18,6 +18,9 @@ public abstract class DefaultController {
 
 	protected DAOFactory dFact;
 	
+	protected String[] months = {"Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août",
+			"Septembre","Octobre","Novembre","Décembre"};
+	
 	public void initialize(){
 		try{
 		dFact = new DAOFactory();

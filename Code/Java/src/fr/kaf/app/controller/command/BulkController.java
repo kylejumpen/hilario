@@ -118,7 +118,7 @@ public class BulkController extends DefaultController implements Initializable {
 			priceFld.setOnKeyReleased((event) -> changeEstimatedPrice(quantityFld.getText()));
 			typePriceGrp.selectedToggleProperty().addListener((obs, oldToggle, newToggle) -> changeTypeSell() );
 			referenceCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getSampleShoe().get().getReference()));
-			quantityCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getResumeInfo().get().get(cellData.getValue().getSampleShoe().get().getReference())).asObject());
+			quantityCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getResumeInfo().get(cellData.getValue().getSampleShoe().get().getReference())).asObject());
 			priceCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("realPrice"));
 		}catch (SQLException e) {
 			// TODO Popup erreur SQL
@@ -147,7 +147,7 @@ public class BulkController extends DefaultController implements Initializable {
 		sample.setPlace(placesCbx.getSelectionModel().getSelectedItem());
 		sample.setReference(referenceCbx.getValue());
 		Order temp = new Order(new Date(),Integer.parseInt(priceFld.getText()),1,sample);
-		temp.getResumeInfo().get().put(sample.getReference(), Integer.parseInt(quantityFld.getText()));
+		temp.getResumeInfo().put(sample.getReference(), Integer.parseInt(quantityFld.getText()));
 		commandTab.getItems().add(temp);
 		computeTotalEstimation();
 	}

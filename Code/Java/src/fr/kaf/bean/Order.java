@@ -67,8 +67,8 @@ public class Order {
 		this.seller.set(seller);
 	}
 
-	public SimpleObjectProperty<HashMap<String,Integer>> getResumeInfo() {
-		return resumeInfo;
+	public HashMap<String,Integer> getResumeInfo() {
+		return resumeInfo.get();
 	}
 
 	public void setResumeInfo(HashMap<String,Integer> resumeInfo) {

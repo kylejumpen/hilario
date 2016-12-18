@@ -5,8 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -22,17 +22,12 @@
             <fx:define>
             	<ToggleGroup fx:id="periodRadio" />
             </fx:define>
-            <RadioButton mnemonicParsing="false" selected="true" text="Hebdomadaire" toggleGroup="$periodRadio" StackPane.alignment="CENTER_LEFT">
+            <RadioButton mnemonicParsing="false" selected="true" text="Mensuel" toggleGroup="$periodRadio" StackPane.alignment="CENTER_LEFT">
                <StackPane.margin>
                   <Insets left="65.0" />
                </StackPane.margin>
             </RadioButton>
-            <RadioButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="Tout" toggleGroup="$periodRadio" StackPane.alignment="CENTER_RIGHT">
-               <StackPane.margin>
-                  <Insets right="15.0" />
-               </StackPane.margin>
-            </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Mensuel" toggleGroup="$periodRadio" StackPane.alignment="CENTER_RIGHT">
+            <RadioButton mnemonicParsing="false" text="Hebdomadaire" toggleGroup="$periodRadio" StackPane.alignment="CENTER_RIGHT">
                <StackPane.margin>
                   <Insets right="130.0" />
                </StackPane.margin>
@@ -42,17 +37,17 @@
             <Insets bottom="10.0" top="15.0" />
          </VBox.margin>
       </StackPane>
-      <TreeTableView maxHeight="250.0" minHeight="250.0" prefHeight="250.0" prefWidth="200.0">
+      <TableView fx:id="accountTab" maxHeight="250.0" minHeight="250.0" prefHeight="250.0" prefWidth="200.0">
         <columns>
-          <TreeTableColumn prefWidth="107.0" text="Périodes" />
-          <TreeTableColumn prefWidth="68.0" text="Ventes" />
-            <TreeTableColumn prefWidth="93.0" text="Dépenses" />
-            <TreeTableColumn prefWidth="131.0" text="Bénéfices" />
+          <TableColumn fx:id="periodCol" prefWidth="107.0" text="Périodes" />
+          <TableColumn fx:id="sellCol" prefWidth="68.0" text="Ventes" />
+          <TableColumn fx:id="expenseCol" prefWidth="93.0" text="Dépenses" />
+          <TableColumn fx:id="benefitCol" prefWidth="131.0" text="Bénéfices" />
         </columns>
          <VBox.margin>
             <Insets left="15.0" right="15.0" />
          </VBox.margin>
-      </TreeTableView>
+      </TableView>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" text="Détails" StackPane.alignment="CENTER_LEFT">

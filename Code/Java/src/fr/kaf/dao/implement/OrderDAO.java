@@ -32,7 +32,7 @@ public class OrderDAO extends DAO<Order> {
 		updateQuery.setInt(1, id);
 		updateQuery.setString(2, order.getSampleShoe().get().getReference());
 		updateQuery.setString(3, order.getSampleShoe().get().getPlace().getName());
-		updateQuery.setInt(4, order.getResumeInfo().get().get(order.getSampleShoe().get().getReference()));
+		updateQuery.setInt(4, order.getResumeInfo().get(order.getSampleShoe().get().getReference()));
 		System.out.println(updateQuery);
 		updateQuery.execute();
 		return true;

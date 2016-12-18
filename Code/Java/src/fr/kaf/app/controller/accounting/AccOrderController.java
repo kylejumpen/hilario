@@ -59,8 +59,6 @@ public class AccOrderController extends DefaultController implements Initializab
 	
 	SimpleListProperty<Order> orders;
 	
-	String[] months = {"Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août",
-			"Septembre","Octobre","Novembre","Décembre"};
 	//TODO Initialiser avec les commande du mois en cours uniquement
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

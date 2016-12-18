@@ -36,4 +36,8 @@ public class DAOFactory {
 	public DAO<?> getShoeDAO(){
 		return new ShoeDAO(conn);
 	}
+	
+	public DAO<?> getStatAccountDAO(){
+		return new StatAccountDAO(conn);
+	}
 }

@@ -28,7 +28,7 @@ public class BulkDAO extends DAO<Bulk> {
 		result.first();
 		int id = result.getInt(1);
 		cmdbulk.getSampleShoe().get().getBulk().setId(id);
-		for(int i = 0; i < cmdbulk.getResumeInfo().get().get(cmdbulk.getSampleShoe().get().getReference());i++) {
+		for(int i = 0; i < cmdbulk.getResumeInfo().get(cmdbulk.getSampleShoe().get().getReference());i++) {
 			PreparedStatement createShoeQuery = this.connect.prepareStatement("INSERT into chaussure(reference,prix_unitaire,nom_local,identifiant_achatfrn) values(?,?,?,?);");
 			createShoeQuery.setString(1, cmdbulk.getSampleShoe().get().getReference());
 			createShoeQuery.setFloat(2, cmdbulk.getSampleShoe().get().getPrice());

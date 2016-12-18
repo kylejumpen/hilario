@@ -87,7 +87,7 @@ public class AddStockController extends DefaultController implements Initializab
 		temp.setBuyer(new Person());
 		temp.setProvider(new Person());
 		temp.setSampleShoe(new Shoe(referenceTxt.getText(), Float.parseFloat(priceTxt.getText()), placesCbx.getSelectionModel().getSelectedItem()));
-		temp.getResumeInfo().getValue().put(referenceTxt.getText(), Integer.parseInt(quantityTxt.getText()));
+		temp.getResumeInfo().put(referenceTxt.getText(), Integer.parseInt(quantityTxt.getText()));
 		temp.setDate(new Date(new java.util.Date().getTime()));
 		try {
 			daoBulk.create(temp);
